@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Pomelo 書單預覽</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', 'Gen Jyuu Gothic', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #000;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            padding: 16px;
+            margin: 16px 0;
+            max-width: 600px;
+        }
+        .title-author {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        .tags {
+            margin-bottom: 12px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #ffe6e6;
+            color: #333;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            margin-right: 5px;
+        }
+        .tag.plain {
+            background: none;
+            color: #333;
+            font-style: italic;
+        }
+        .comment {
+            display: flex;
+            align-items: center;
+        }
+        .comment-bar {
+            width: 5px;
+            height: 100%;
+            background-color: #ff9999;
+            margin-right: 10px;
+        }
+        .comment-text {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="title-author">《範例書籍A》作者：林小雨</div>
+        <div class="tags">
+            <span class="tag">現代</span>
+            <span class="tag">雙向暗戀</span>
+        </div>
+        <div class="comment">
+            <div class="comment-bar"></div>
+            <div class="comment-text">文字清新自然，情感真摯，令人回味無窮。</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title-author">《範例書籍B》作者：張三</div>
+        <div class="tags">
+            <span class="tag plain">古代／修仙</span>
+        </div>
+        <div class="comment">
+            <div class="comment-bar"></div>
+            <div class="comment-text">前期節奏慢，人物不夠立體，未讀完。</div>
+        </div>
+    </div>
+</body>
+</html>
