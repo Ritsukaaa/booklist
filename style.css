@@ -15,6 +15,16 @@ body {
   max-width: 600px;
   margin: auto;
 }
+.book-heading {
+  margin: 0;
+  padding: 0;
+}
+
+.book-title,
+.author {
+  display: inline;
+  font-size: 1em;
+}
 
 .book-title {
   font-size: 1.4rem;
