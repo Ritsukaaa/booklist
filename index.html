@@ -64,20 +64,14 @@
       background-color: #083A33;
       color: #f7c5cc;
     }
-    .comment {
-      display: flex;
-      align-items: flex-start;
-      margin-top: 1rem;
-    }
-    .comment-block {
-      width: 5px;
-      height: 100%;
-      background-color: #D0BFFF;
-      margin-right: 0.75rem;
-    }
-    .comment-text {
-      font-size: 0.95rem;
-      color: #333;
+
+    .short-comment-label {
+  background-color: #D0BFFF;
+  padding: 2px 6px;
+  margin-right: 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  display: inline-block;
     }
     .watermark {
       position: absolute;
@@ -99,10 +93,10 @@
       <div class="tag tag-a">標籤 C</div>
       <div class="tag tag-b">標籤 D</div>
     </div>
-    <div class="comment">
-      <div class="comment-block"></div>
-      <div class="comment-text">這是一段簡短的短評文字，用來描述這本書的整體感受與重點。</div>
-    </div>
+      <div class="short-comment">
+  <span class="short-comment-label"></span>
+  <span>這是短評文字內容</span>
+      </div>
     <img class="watermark" src="https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/20250506223838624.png" />
   </div>
 </body>
