@@ -1,0 +1,93 @@
+
+body {
+  font-family: "源柔ゴシック", "Noto Sans TC", sans-serif;
+  background: #f9f9f9;
+  padding: 2rem;
+}
+
+.book-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+
+.book-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-title a {
+  text-decoration: none;
+  color: #333;
+}
+
+.book-title .author {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+.rating {
+  color: #F9BF45;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-line {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.tag-a {
+  background: #f7c5cc;
+  color: #083A33;
+}
+
+.tag-b {
+  background: #083A33;
+  color: #f7c5cc;
+}
+
+.short-review {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.color-block {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #D0BFFF;
+  border-radius: 2px;
+}
+
+.watermark {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 120px;
+  opacity: 0.8;
+  background-image: url('https://example.com/your-watermark.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 60px;
+}
