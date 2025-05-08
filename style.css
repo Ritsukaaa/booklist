@@ -9,7 +9,6 @@
   font-family: 'Gen Jyuu Gothic', 'Noto Sans TC', sans-serif;
 }
 .header {
-  margin-bottom: 0.75em;
   display: flex;
   flex-direction: column;
 }
