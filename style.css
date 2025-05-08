@@ -8,10 +8,6 @@
   background-color: #fff;
   font-family: 'Gen Jyuu Gothic', 'Noto Sans TC', sans-serif;
 }
-.header {
-  display: flex;
-  flex-direction: column;
-}
 .title {
   font-size: 1.3em;
   font-weight: bold;
