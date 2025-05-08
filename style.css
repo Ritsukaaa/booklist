@@ -19,10 +19,11 @@
 }
 
 .book-title .book-author {
-  font-size: 0.9em !important;
-  font-weight: normal !important;
+  font-size: 0.9em;
+  font-weight: normal;
   color: #444;
-  margin-left: 0.3em;
+  margin-left: 0.4em;
+  display: inline-block;
 }
 
 .book-stars {
