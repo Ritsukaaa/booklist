@@ -52,14 +52,11 @@
 .book-comment {
   display: flex;
   align-items: flex-start;
-  max-width: calc(100% - 130px);
-  margin-top: 0.25em;
+  gap: 8px;
 }
 
 .comment-bar {
   width: 4px;
-  height: 1em;
-  margin-top: 0.25em;
   background-color: #D0BFFF;
   border-radius: 4px;
   flex-shrink: 0;
@@ -69,10 +66,7 @@
   font-size: 0.95em;
   color: #444;
   margin: 0;
-  margin-left: 8px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .book-watermark {
