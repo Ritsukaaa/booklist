@@ -18,9 +18,10 @@
   line-height: 1.2;
 }
 
-.book-author {
-  font-size: 0.9em;
-  font-weight: normal;
+.book-title .book-author {
+  font-size: 0.9em !important;
+  font-weight: normal !important;
+  color: #444;
   margin-left: 0.3em;
 }
 
