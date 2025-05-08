@@ -19,8 +19,9 @@
 }
 
 .book-author {
-  font-size: 0.9em;
-  font-weight: normal;
+  font-size: 0.9em !important;
+  font-weight: normal !important;
+  color: inherit;
   margin-left: 0.3em;
 }
 
