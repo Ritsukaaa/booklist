@@ -106,11 +106,12 @@
 }
 
 .plain-tags span {
-  background: none;
+  border: 1px solid #444;
   color: #444;
-  padding: 0;
+  background: none;
+  border-radius: 999px;
+  padding: 0.2em 0.8em;
   font-size: 0.9em;
-}
-.plain-tags {
-  margin-bottom: 0.75em;
+  display: inline-block;
+  margin-right: 0.5em;
 }
