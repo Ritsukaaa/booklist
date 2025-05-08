@@ -34,7 +34,11 @@
 }
 
 .book-tags {
-  margin-bottom: 0.8em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
 }
 
 .book-tags .tag {
@@ -44,7 +48,8 @@
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 0.85em;
-  margin: 0 6px 6px 0;
+  margin: 0 6px 6px 0
+  display: flex; 
 }
 
 .book-comment {
