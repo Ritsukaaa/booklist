@@ -42,7 +42,7 @@
 .tag {
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
   display: inline-block;
   background-color: #f7c5cc;
@@ -94,7 +94,7 @@
   color: #083A33;
   border-radius: 999px;
   padding: 0.2em 0.8em;
-  font-size: 0.85em;
+  font-size: 0.9em;
   display: inline-block;
   margin-right: 0.5em;
 }
@@ -103,7 +103,7 @@
   background: none;
   color: #444;
   padding: 0;
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
 .plain-tags {
   margin-bottom: 0.5em;
