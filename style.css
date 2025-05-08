@@ -34,23 +34,21 @@
 }
 
 .book-tags {
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .book-tags .tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
   display: inline-block;
   background-color: #f7c5cc;
   color: #083A33;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.85em;
-  margin: 0 6px 6px 0
-  display: flex; 
-}
+}   
 
 .book-comment {
   position: relative;
