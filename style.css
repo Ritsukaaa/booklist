@@ -87,8 +87,15 @@
   right: 10px;
   width: 120px;
   height: auto;
-  opacity: 0.8;
+  opacity: 1;
   pointer-events: none;
+}
+
+/* 若你希望棄文圖略小、或位置不同，也可加額外樣式 */
+.watermark-img.drop {
+  bottom: 12px;
+  right: 12px;
+  opacity: 1;
 }
 
 .book-tags span {
