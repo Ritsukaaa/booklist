@@ -81,11 +81,25 @@
   overflow-wrap: break-word;
 }
 
-.watermark {
+.watermark-A {
   position: absolute;
   bottom: 10px;
   right: 10px;
   background-image: url('https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/20250509120546525.png');
+  background-size: 120px auto;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  width: 120px;
+  height: 120px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.watermark-B {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-image: url('https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/2025050912054509b.png');
   background-size: 120px auto;
   background-repeat: no-repeat;
   background-position: bottom right;
