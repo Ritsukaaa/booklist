@@ -6,10 +6,30 @@ body {
 }
 
 .filter-bar {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  margin-bottom: 1.5em;
+  appearance: none;
+  width: 300px;/*セレクトボックスの横幅*/
+  padding: 15px;
+  color: #333;/*テキストの色*/
+  border: 1px solid #5cc0b5;/*枠線の太さ・形状・色*/
+  border-radius: 3px;/*枠線の角丸*/
+  background-color: #fff;/*背景色*/
+  cursor: pointer;/*マウスカーソルをポインターに*/
+}
+select:focus{
+  outline: none;/*focus時の枠線を消去*/
+}
+.selectbox{
+  position: relative;
+  width: 300px;/*親要素の横幅*/
+}
+.selectbox::before{
+  position: absolute;
+  top: 15px;/*矢印の上からの位置*/
+  right: 20px;/*矢印の右からの位置*/
+  font: var(--fa-font-solid);/*FontAwesomeの指定*/
+  content: '\f13a';/*アイコンのUnicode*/
+  color: #5cc0b5;/*矢印の色*/
+  pointer-events: none;/*矢印部分をクリックできるようにする*/
 }
 
 .filter-bar select {
