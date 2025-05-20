@@ -5,7 +5,7 @@ body {
   padding: 2em;
 }
 
-.filter-bar {
+.select {
   appearance: none;
   width: 300px;/*セレクトボックスの横幅*/
   padding: 15px;
@@ -18,11 +18,11 @@ body {
 select:focus{
   outline: none;/*focus時の枠線を消去*/
 }
-.selectbox{
+.filter-bar{
   position: relative;
   width: 300px;/*親要素の横幅*/
 }
-.selectbox::before{
+.filter-bar::before{
   position: absolute;
   top: 15px;/*矢印の上からの位置*/
   right: 20px;/*矢印の右からの位置*/
@@ -30,13 +30,6 @@ select:focus{
   content: '\f13a';/*アイコンのUnicode*/
   color: #5cc0b5;/*矢印の色*/
   pointer-events: none;/*矢印部分をクリックできるようにする*/
-}
-
-.filter-bar select {
-  padding: 0.4em 1em;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.95em;
 }
 
 .card {
