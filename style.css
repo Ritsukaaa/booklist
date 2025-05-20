@@ -24,14 +24,15 @@ select:focus{
 }
 .filter-bar::before{
   position: absolute;
-  top: 15px;/*矢印の上からの位置*/
+  top: 18px;/*矢印の上からの位置*/
   right: 20px;/*矢印の右からの位置*/
-  font: var(--fa-font-solid);/*FontAwesomeの指定*/
-  content: '\f13a';/*アイコンのUnicode*/
-  color: #5cc0b5;/*矢印の色*/
+  content: '';
+  width: 15px;/*矢印の横幅*/
+  height: 10px;/*矢印の縦幅*/
+  clip-path: polygon(0 0, 100% 0, 50% 100%);/*逆三角形の描画*/
+  background-color: #5cc0b5;/*矢印の色*/
   pointer-events: none;/*矢印部分をクリックできるようにする*/
 }
-
 .card {
   border: 1px solid #000;
   border-radius: 12px;
