@@ -121,29 +121,38 @@ body {
 }
 
 .pagination {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
   margin-top: 2em;
 }
 
-.pagination a,
-.pagination span {
-  display: inline-block;
-  padding: 0.4em 0.8em;
-  margin: 0 0.2em;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #333;
-  background-color: #eee;
+.page, .arrow {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 999px;
   font-size: 0.9em;
+  cursor: pointer;
+  color: #444;
+  background-color: #E6E6E6;
+  transition: all 0.2s ease;
 }
 
-.pagination a.active {
+.page.active {
   background-color: #f7c5cc;
-  color: #000;
+  color: #083A33;
   font-weight: bold;
 }
 
-.pagination .dots {
-  background: none;
-  pointer-events: none;
+.page:hover, .arrow:hover {
+  background-color: #d5d5d5;
+}
+
+.dots {
+  color: #999;
+  padding: 0 0.3em;
 }
