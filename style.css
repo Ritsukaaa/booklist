@@ -5,34 +5,54 @@ body {
   padding: 2em;
 }
 
-.select {
-  appearance: none;
-  width: 300px;/*セレクトボックスの横幅*/
-  padding: 15px;
-  color: #333;/*テキストの色*/
-  border: 1px solid #5cc0b5;/*枠線の太さ・形状・色*/
-  border-radius: 3px;/*枠線の角丸*/
-  background-color: #fff;/*背景色*/
-  cursor: pointer;/*マウスカーソルをポインターに*/
+.filter-bar {
+    position: relative;
 }
-select:focus{
-  outline: none;/*focus時の枠線を消去*/
+
+.filter-bar::before,
+.filter-bar::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
 }
-.filter-bar{
-  position: relative;
-  width: 300px;/*親要素の横幅*/
+
+.filter-bar::before {
+    display: inline-block;
+    right: 0;
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 0 3px 3px 0;
+    background-color: #2589d0;
 }
-.filter-bar::before{
-  position: absolute;
-  top: 18px;/*矢印の上からの位置*/
-  right: 20px;/*矢印の右からの位置*/
-  content: '';
-  width: 15px;/*矢印の横幅*/
-  height: 10px;/*矢印の縦幅*/
-  clip-path: polygon(0 0, 100% 0, 50% 100%);/*逆三角形の描画*/
-  background-color: #5cc0b5;/*矢印の色*/
-  pointer-events: none;/*矢印部分をクリックできるようにする*/
+
+.filter-bar::after {
+    position: absolute;
+    top: 50%;
+    right: 1.4em;
+    transform: translate(50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
 }
+
+.filter-bar select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em 3.6em .4em .8em;
+    border: none;
+    border-radius: 3px;
+    background-color: #a8a8a8;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.filter-bar select:focus {
+    outline: 2px solid #2589d0;
+}
+
 .card {
   border: 1px solid #000;
   border-radius: 12px;
