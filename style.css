@@ -1,0 +1,146 @@
+
+body {
+  font-family: 'Gen Jyuu Gothic', 'Noto Sans TC', sans-serif;
+  background-color: #f9f9f9;
+  padding: 2em;
+}
+.card {
+  border: 1px solid #000;
+  border-radius: 12px;
+  padding: 1em 1.5em 1.5em 1.5em;
+  margin: 2em auto;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 720px;
+  position: relative;
+}
+.title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+  margin-top: 0;
+  padding-top: 0.65em;
+  line-height: 1.2;
+}
+.title .author {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #444;
+  margin-left: 0.3em;
+}
+.stars {
+  color: #F9BF45;
+  font-size: 1.1em;
+  margin-bottom: 0.3em;
+}
+.meta {
+  font-size: 0.9em;
+  color: #444;
+  margin-bottom: 0.8em;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+  background-color: #f7c5cc;
+  color: #000;
+}
+.comment {
+  display: flex;
+  align-items: flex-start;
+  max-width: calc(100% - 130px);
+  margin-top: 0.25em;
+}
+.comment-bar {
+  width: 4px;
+  height: 1em;
+  margin-top: 0.25em;
+  background-color: #D0BFFF;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.comment p {
+  font-size: 0.9em;
+  color: #444;
+  margin: 0;
+  margin-left: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.watermark-img {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 120px;
+  height: auto;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.book-tags span {
+  background: #f7c5cc;
+  color: #083A33;
+  border-radius: 999px;
+  padding: 0.2em 0.8em;
+  font-size: 0.9em;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+.plain-tags span {
+  border: 1px solid #444;
+  color: #444;
+  background: none;
+  border-radius: 999px;
+  padding: 0.2em 0.8em;
+  font-size: 0.9em;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 1em auto;
+  max-width: 720px;
+}
+.filter-bar select {
+  padding: 0.4em 1em;
+  border-radius: 999px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  margin: 2em 0;
+}
+.page, .arrow, .dots {
+  border: 1px solid #aaa;
+  border-radius: 999px;
+  padding: 0.3em 0.75em;
+  min-width: 2em;
+  text-align: center;
+  background: #eee;
+  color: #333;
+  cursor: default;
+}
+.page.active {
+  background: #f7c5cc;
+  color: #000;
+  font-weight: bold;
+}
+.arrow {
+  font-weight: bold;
+}
