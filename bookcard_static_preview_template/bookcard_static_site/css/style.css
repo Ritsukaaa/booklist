@@ -1,0 +1,40 @@
+
+.book-card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.2em;
+  border-radius: 1rem;
+  margin: 1.2em 0;
+  background: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  position: relative;
+}
+.tag-macaroon {
+  display: inline-block;
+  background-color: #f7c5cc;
+  color: #083A33;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.9em;
+  margin-right: 5px;
+}
+.tag-drop {
+  display: inline-block;
+  color: #083A33;
+  border: 1px solid #083A33;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.9em;
+  margin-right: 5px;
+  background: transparent;
+}
+.book-card .watermark {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.8;
+  width: 120px;
+}
+.book-card.drop .watermark {
+  width: 100px;
+  opacity: 0.6;
+}
