@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>書單展示測試</title>
+  <style>
+    body { font-family: "Noto Sans TC", sans-serif; background: #f9f9f9; color: #333; padding: 2em; }
+    .card {
+      background: #fff; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.5em; margin-bottom: 2em; position: relative; overflow: hidden;
+    }
+    .card h2 { font-size: 1.4em; margin-bottom: 0.2em; }
+    .card .author { font-size: 0.9em; color: #666; }
+    .card .info { margin: 0.5em 0; font-size: 0.9em; }
+    .card .tags span {
+      display: inline-block; margin: 0.2em 0.3em 0 0; padding: 0.3em 0.8em;
+      border-radius: 999px; font-size: 0.85em; font-weight: 500;
+    }
+    .tag-a { background: #f7c5cc; color: #083A33; }
+    .tag-b { background: #083A33; color: #f7c5cc; }
+    .tag-text { font-size: 0.85em; padding: 0.3em 0.8em; background: #eee; border-radius: 999px; display: inline-block; }
+    .comment::before {
+      content: ""; display: inline-block; width: 6px; height: 1em;
+      background: #D0BFFF; margin-right: 0.5em; vertical-align: middle;
+    }
+    .watermark {
+      position: absolute; bottom: 8px; right: 8px; opacity: 1;
+    }
+    .watermark.catgirl { width: 120px; }
+    .watermark.blackcat { width: 90px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>《狐狸小姐的午茶》<span class="author">狐狸尾</span></h2>
+    <div class="info">15萬字｜年下忠犬攻｜HE</div>
+    <div class="tags">
+      <span class="tag-a">現代</span>
+      <span class="tag-b">甜文</span>
+    </div>
+    <div class="comment">狐狸變人來相親，甜到冒泡！</div>
+    <img src="catgirl.png" alt="watermark" class="watermark catgirl" />
+  </div>
+
+  <div class="card">
+    <h2>《穿錯書怎麼辦》<span class="author">墨墨魚</span></h2>
+    <div class="info">棄文｜標籤：<span class="tag-text">現代／穿書</span></div>
+    <div class="comment">世界觀太混亂看不下去</div>
+    <img src="blackcat.png" alt="watermark" class="watermark blackcat" />
+  </div>
+</body>
+</html>
