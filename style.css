@@ -59,31 +59,21 @@
   background-color: #f7c5cc;
   color: #000;
 }
-
 .comment {
-  display: flex;
-  align-items: flex-start;
-  max-width: calc(100% - 130px);
-  margin-top: 0.25em;
+  position: relative;
+  padding-left: 12px;
+  margin-top: 12px;
 }
 
-.comment-bar {
-  width: 4px;
-  height: 1em;
-  margin-top: 0.25em;
-  background-color: #D0BFFF;
+.comment::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: #D0BFFF; /* 你指定的色塊 */
   border-radius: 4px;
-  flex-shrink: 0;
-}
-
-.comment p {
-  font-size: 0.9em;
-  color: #444;
-  margin: 0;
-  margin-left: 8px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 .watermark-img {
