@@ -5,8 +5,7 @@ books.forEach(book => {
   card.className = "book-card";
 
   card.innerHTML = `
-  <div calss="card">
-  <h3 class="title"><a href="${book.link}" target="_blank">${book.title}</a><span class="author">作者：${book.author}</span>
+  <div calss="card"><h3 class="title"><a href="${book.link}" target="_blank">${book.title}</a><span class="author">作者：${book.author}</span>
 </h3>
     <div class="stars">${"★".repeat(book.rating)}${"☆".repeat(5 - book.rating)}</div>
     <div class="tags">${book.tags.map(tag => `<span class="label label-a">${tag}</span>`).join("")}</div>
