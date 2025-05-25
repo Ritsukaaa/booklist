@@ -1,45 +1,43 @@
-const container = document.getElementById("book-list");
-
-books.forEach(book => {
+bookData.forEach(book => {
   const card = document.createElement("div");
   card.className = "card";
 
-  card.innerHTML = `
-  <h3 class="title"><a href="${book.link}" target="_blank">${book.title}</a><span class="author">作者：${book.author}</span>
-</h3>
-    <div class="stars">${"★".repeat(book.rating)}${"☆".repeat(5 - book.rating)}</div>
+  // 判斷是推文還是棄文
+  const isAbandoned = book.rating === "★☆☆☆☆";
 
-const meta = document.createElement("div");
-meta.className = "meta";
-meta.innerText = book.meta;
-card.appendChild(meta);
- 
- const tagKeys = ["tagA", "tagB", "tagC", "tagD", "tagE", "tagF", "tagG", "tagH", "tagI"];
-const tagsContainer = document.createElement("div");
-tagsContainer.className = "tags";
-
-tagKeys.forEach(key => {
-  if (book[key]) {
-    // 以「／」切開同一欄內的多個標籤
-    book[key].split("／").forEach(rawTag => {
-      const tagText = rawTag.trim();
-      if (tagText) {
-        const tag = document.createElement("span");
-        tag.className = "tag";
-        tag.textContent = tagText;
-        tagsContainer.appendChild(tag);
-      }
-    });
+  // 判斷標籤格式（推文分開、棄文為文字）
+  let tagHTML = "";
+  if (isAbandoned) {
+    tagHTML = `
+      <div class="book-tags plain-tags">
+        <span>${book.tags.join("／")}</span>
+      </div>`;
+  } else {
+    const tagSpans = book.tags.map(tag =>
+      `<span class="tag">${tag}</span>`).join("");
+    tagHTML = `<div class="tags">${tagSpans}</div>`;
   }
-});
 
-card.appendChild(tagsContainer);
-    <div class="comment"><div class="comment-bar"></div><p>${book.comment}</p></div>
+  // 套入完整 innerHTML
+  card.innerHTML = `
+    <div class="header">
+      <h3 class="title">《<a href="${book.link}" target="_blank">${book.title}</a>》
+        <span class="author">作者：${book.author}</span>
+      </h3>
+      <div class="stars">${book.rating}</div>
+      <div class="meta">${book.meta}</div>
+    </div>
+    ${tagHTML}
+    <div class="comment">
+      <div class="comment-bar"></div>
+      <p>${book.comment}</p>
+    </div>
+    <img class="watermark-img ${isAbandoned ? "drop" : "push"}" 
+         src="${isAbandoned 
+          ? "https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/202505091239326a3.png"
+          : "https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/202505091239366f3.png"}" 
+         alt="浮水印">
+  `;
 
-const watermark = document.createElement("img");
-watermark.className = "watermark";
-watermark.src = book.https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/202505091239366f3.png; // image 欄位放圖片網址
-card.appendChild(watermark);    
-
-  container.appendChild(card);
+  document.getElementById("book-list").appendChild(card);
 });
