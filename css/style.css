@@ -1,0 +1,87 @@
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: #f8f8f8;
+  padding: 2rem;
+}
+.card-grid {
+  display: grid;
+  gap: 2rem;
+}
+.book-card {
+  position: relative;
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.book-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.book-title .author {
+  font-weight: normal;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+.rating {
+  color: #F9BF45;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+.book-info {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.tag.a {
+  background: #f7c5cc;
+  color: #083A33;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+}
+.tags.plain .plain-tag {
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+}
+.short-comment {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+}
+.short-comment .color-block {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: 6px;
+  height: 1.2rem;
+  background: #D0BFFF;
+}
+.watermark {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.推文水印 {
+  background-image: url('https://i.imgur.com/ea2L2MN.png');
+}
+.棄文水印 {
+  background-image: url('https://i.imgur.com/gXHre4C.png');
+  width: 80px;
+  height: 80px;
+}
