@@ -10,7 +10,7 @@ books.forEach(book => {
 </div>
     <div class="stars">${"★".repeat(book.rating)}${"☆".repeat(5 - book.rating)}</div>
     <div class="tags">${book.tags.map(tag => `<span class="label label-a">${tag}</span>`).join("")}</div>
-    <div class="comment"><span class="comment-bar"></span>${book.comment}</div>
+    <div class="comment"><span class="comment-bar"><p>${book.comment}</p></span></div>
     <img class="watermark" src="images/${book.watermark}"></div>
   `;
 
