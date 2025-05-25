@@ -4,6 +4,7 @@ const books = [
     author: "某某",
     rating: 5,
     tags: ["現代", "穿書"],
+    meta："字數｜攻名字 × 受名字｜口味"
     isDropped: false,
     comment: "劇情緊湊，角色有魅力",
     watermark: "catgirl.png"
