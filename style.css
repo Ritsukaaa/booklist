@@ -17,6 +17,11 @@
   line-height: 1.2;
 }
 
+.title a {
+  color: inherit;         /* 使用父元素的文字顏色 */
+  text-decoration: none;  /* 移除底線 */
+}
+
 .author {
   font-size: 0.9em;
   font-weight: normal;
