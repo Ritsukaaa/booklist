@@ -8,7 +8,10 @@
 </head>
 <body>
   <div id="book-list">
-    <span class="author">作者：${book.author}</span>
+<div class="title">
+  《<a href="${book.link}" target="_blank">${book.title}</a>》
+  <span class="author">作者：${book.author}</span>
+</div>
   </div>
 <script src="data.js"></script>
   <script src="script.js"></script>
