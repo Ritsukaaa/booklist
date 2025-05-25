@@ -2,10 +2,9 @@ const container = document.getElementById("book-list");
 
 books.forEach(book => {
   const card = document.createElement("div");
-  card.className = "book-card";
+  card.className = "card";
 
   card.innerHTML = `
-  <div calss="card">
   <h3 class="title"><a href="${book.link}" target="_blank">${book.title}</a><span class="author">作者：${book.author}</span>
 </h3>
     <div class="stars">${"★".repeat(book.rating)}${"☆".repeat(5 - book.rating)}</div>
