@@ -35,8 +35,11 @@ tagKeys.forEach(key => {
 
 card.appendChild(tagsContainer);
     <div class="comment"><div class="comment-bar"></div><p>${book.comment}</p></div>
-    <img class="watermark" src="images/${book.watermark}">
-  `;
+
+const watermark = document.createElement("img");
+watermark.className = "watermark";
+watermark.src = book.https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/202505091239366f3.png; // image 欄位放圖片網址
+card.appendChild(watermark);    
 
   container.appendChild(card);
 });
