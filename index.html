@@ -7,6 +7,38 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
+  <div id="book-list">
+<script>
+  const container = document.getElementById("book-list");
+
+  books.forEach(book => {
+    const card = document.createElement("div");
+    card.className = "card"; // 你自己的 class 名
+
+    // 書名與作者
+    const title = `<div class="title">${book.title}<span class="author">${book.author}</span></div>`;
+
+    // 評分星星
+    const stars = `<div class="stars">${"★".repeat(book.rating)}${"☆".repeat(5 - book.rating)}</div>`;
+
+    // 標籤
+    const tags = book.isDropped
+      ? `<div class="book-tags plain-tags">${book.tags[0]}</div>`
+      : `<div class="tags">${book.tags.map(tag => `<span class="label label-a">${tag}</span>`).join("")}</div>`;
+
+    // 短評
+    const comment = `<div class="comment"><span class="highlight-block"></span>${book.comment}</div>`;
+
+    // 浮水印
+    const watermark = `<img class="watermark" src="images/${book.watermark}" />`;
+
+    card.innerHTML = `${title}${stars}${tags}${comment}${watermark}`;
+
+    container.appendChild(card);
+  });
+</script>
+    
+  </div>
 
 <!-- 推文書卡 -->
 <div class="card">
