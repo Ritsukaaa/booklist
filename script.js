@@ -1,84 +1,111 @@
-import { books } from './deta.js';
+const cardsPerPage = 10;
+let currentPage = 1;
+let filteredBooks = [];
 
-function createTag(label, colorA, colorB) {
-  const tag = document.createElement('span');
-  tag.className = 'inline-block px-2 py-1 rounded-full text-xs font-semibold mr-1 mb-1';
-  tag.style.backgroundColor = colorA;
-  tag.style.color = colorB;
-  tag.textContent = label;
-  return tag;
+function renderCards() {
+  const container = document.getElementById("card-container");
+  container.innerHTML = "";
+
+  const startIndex = (currentPage - 1) * cardsPerPage;
+  const endIndex = startIndex + cardsPerPage;
+  const pageItems = filteredBooks.slice(startIndex, endIndex);
+
+  for (const book of pageItems) {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const title = `<h2>《<a href="${book.書籍連結}" target="_blank">${book.書名}</a>》<span class="author">${book.作者}</span></h2>`;
+    const info = `<div class="rating">${book.星星符號}</div>`;
+    const summary = `<div class="summary">${book.短評}</div>`;
+    
+    let tagsHtml = '<div class="tags">';
+    ["標籤A", "標籤B", "標籤C", "標籤D", "標籤E", "標籤F", "標籤G", "標籤H", "標籤I"].forEach((tagKey) => {
+      if (book[tagKey]) {
+        const className = (tagKey === "標籤B" || tagKey === "標籤D" || tagKey === "標籤F" || tagKey === "標籤H") ? "tag b" : "tag";
+        tagsHtml += `<span class="${className}">${book[tagKey]}</span>`;
+      }
+    });
+    tagsHtml += "</div>";
+
+    card.innerHTML = title + info + summary + tagsHtml;
+    container.appendChild(card);
+  }
+
+  updatePageInfo();
 }
 
-function renderBooks(bookList) {
-  const container = document.getElementById('book-container');
-  container.innerHTML = '';
+function applyFilters() {
+  const rating = document.getElementById("ratingFilter").value;
+  const tagA = document.getElementById("tagAFilter").value;
+  const tagB = document.getElementById("tagBFilter").value;
+  const abandon = document.getElementById("abandonFilter").value;
 
-  bookList.forEach(book => {
-    const card = document.createElement('div');
-    card.className = 'relative bg-white rounded-2xl shadow-md p-4';
+  filteredBooks = books.filter((book) => {
+    return (
+      (rating === "" || book.星數 == rating) &&
+      (tagA === "" || book.標籤A === tagA) &&
+      (tagB === "" || book.標籤B === tagB) &&
+      (abandon === "" || book.是否棄文 === abandon)
+    );
+  });
 
-    // 書名與作者
-    const title = document.createElement('div');
-    title.innerHTML = `<a href="${book.連結}" target="_blank" class="text-xl font-bold no-underline hover:underline">《${book.書名}》</a><span class="ml-2 text-sm">${book.作者}</span>`;
-    card.appendChild(title);
+  currentPage = 1;
+  renderCards();
+}
 
-    // 星星評分
-    const rating = document.createElement('div');
-    rating.className = 'my-1';
-    rating.innerHTML = book.評分符號 || '';
-    card.appendChild(rating);
+function updatePageInfo() {
+  const info = document.getElementById("pageInfo");
+  const totalPages = Math.ceil(filteredBooks.length / cardsPerPage);
+  info.textContent = `第 ${currentPage} 頁，共 ${totalPages} 頁`;
 
-    // 書籍資訊列
-    const info = document.createElement('div');
-    info.className = 'text-sm text-gray-600';
-    info.innerHTML = `${book.字數}｜${book.人物}｜${book.口味}`;
-    card.appendChild(info);
+  document.getElementById("prevPage").disabled = currentPage === 1;
+  document.getElementById("nextPage").disabled = currentPage === totalPages;
+}
 
-    // 馬卡龍標籤 or 純文字標籤
-    const tagWrap = document.createElement('div');
-    tagWrap.className = 'mt-2 flex flex-wrap';
+document.getElementById("ratingFilter").addEventListener("change", applyFilters);
+document.getElementById("tagAFilter").addEventListener("change", applyFilters);
+document.getElementById("tagBFilter").addEventListener("change", applyFilters);
+document.getElementById("abandonFilter").addEventListener("change", applyFilters);
 
-    const pink = '#f7c5cc', green = '#083A33';
-    const tagFields = ['標籤A', '標籤B', '標籤C', '標籤D', '標籤E', '標籤F', '標籤G', '標籤H', '標籤I'];
+document.getElementById("prevPage").addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderCards();
+  }
+});
 
-    if (book.是否棄文 === 'Y') {
-      const drop = document.createElement('span');
-      drop.className = 'text-sm';
-      drop.textContent = book.棄文備註 || '（棄）';
-      tagWrap.appendChild(drop);
-    } else {
-      tagFields.forEach((key, i) => {
-        const val = book[key];
-        if (val) tagWrap.appendChild(createTag(val, i % 2 === 0 ? pink : green, i % 2 === 0 ? green : pink));
-      });
-    }
+document.getElementById("nextPage").addEventListener("click", () => {
+  const totalPages = Math.ceil(filteredBooks.length / cardsPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderCards();
+  }
+});
 
-    card.appendChild(tagWrap);
+function populateTagOptions() {
+  const tagASet = new Set();
+  const tagBSet = new Set();
+  books.forEach((book) => {
+    if (book.標籤A) tagASet.add(book.標籤A);
+    if (book.標籤B) tagBSet.add(book.標籤B);
+  });
 
-    // 短評
-    if (book.短評) {
-      const comment = document.createElement('div');
-      comment.className = 'mt-3 pl-2 border-l-4';
-      comment.style.borderColor = '#D0BFFF';
-      comment.innerHTML = `<div class="text-sm whitespace-pre-line">${book.短評}</div>`;
-      card.appendChild(comment);
-    }
-
-    // 浮水印圖片
-    if (book.浮水印圖片連結) {
-      const img = document.createElement('img');
-      img.src = book.浮水印圖片連結;
-      img.style.position = 'absolute';
-      img.style.bottom = '8px';
-      img.style.right = '8px';
-      img.style.opacity = '0.8';
-      img.style.width = '120px';
-      card.appendChild(img);
-    }
-
-    container.appendChild(card);
+  const tagAFilter = document.getElementById("tagAFilter");
+  const tagBFilter = document.getElementById("tagBFilter");
+  tagASet.forEach((tag) => {
+    const option = document.createElement("option");
+    option.value = tag;
+    option.textContent = tag;
+    tagAFilter.appendChild(option);
+  });
+  tagBSet.forEach((tag) => {
+    const option = document.createElement("option");
+    option.value = tag;
+    option.textContent = tag;
+    tagBFilter.appendChild(option);
   });
 }
 
-// 初始渲染
-renderBooks(books);
+populateTagOptions();
+filteredBooks = books;
+renderCards();
