@@ -16,7 +16,7 @@ body {
   background: white;
   border-radius: 1rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 1.2rem;
+  padding: 1rem 1.2rem 1rem 1.2rem;
   box-sizing: border-box;
 }
 .book-card .title {
@@ -155,15 +155,13 @@ body {
 /* 短評結構（條紋 + 可換行） */
 .comment {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   max-width: calc(100% - 130px);
   margin-top: 0.25em;
 }
 
 .comment-bar {
   width: 4px;
-  height: 1em;
-  margin-top: 0.25em;
   background-color: #D0BFFF;
   border-radius: 4px;
   flex-shrink: 0;
@@ -178,7 +176,6 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
-
 /* 頁碼 hover 效果 */
 .pagination button {
   padding: 0.5rem 1rem;
