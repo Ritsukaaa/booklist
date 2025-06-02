@@ -10,10 +10,7 @@
 
   <!-- 🔍 篩選區 -->
   <div class="filters">
-    <!-- 作者搜尋 -->
     <input type="text" id="authorSearch" placeholder="🔍 搜尋作者名稱..." />
-
-    <!-- 評分篩選器 -->
     <select id="rating-filter">
       <option value="">✦ 評分</option>
       <option value="5">★★★★★</option>
@@ -31,9 +28,12 @@
   <div id="bookList" class="book-list"></div>
 
   <!-- ⏩ 頁碼區 -->
-  <div id="pagination" class="pagination"></div>
+  <section class="pagination">
+    <button id="prevPage">← 上一頁</button>
+    <span id="pageInfo">第 1 頁</span>
+    <button id="nextPage">下一頁 →</button>
+  </section>
 
-  <!-- 📦 載入資料與主程式 -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
