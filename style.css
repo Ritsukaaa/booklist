@@ -21,12 +21,15 @@ body {
   gap: 2rem;
   align-items: center;
 }
-
+.book-card .title a {
+  color: #000;            /* 黑色字 */
+  text-decoration: none;  /* 移除底線 */
+}
 .book-card .title {
   font-size: 1.1rem;
   font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+  margin: 0;
+  line-height: 1.2; /* ✅ 新增這行讓行距貼齊 */
 }
 .book-card .author {
   font-size: 0.9rem;
