@@ -80,8 +80,8 @@ body {
 .filter-wrapper {
   max-width: 720px;
   width: 100%;
-  margin: 0 auto; /* ✅ 對齊書卡左右邊 */
-  padding: 0;     /* 無內距避免偏移 */
+  margin-left: auto; /* ⬅️ 右對齊關鍵 */
+  margin-right: 0;
 }
 
 .filters {
