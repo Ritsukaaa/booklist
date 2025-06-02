@@ -61,14 +61,6 @@ body {
   border-radius: 999px;
   font-size: 0.8rem;
 }
-.book-card .comment {
-  background: #D0BFFF;
-  padding: 0.6em;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  word-wrap: break-word;
-  word-break: break-all;
-}
 .book-card .watermark {
   position: absolute;
   bottom: 0.6rem;
@@ -97,7 +89,8 @@ body {
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  align-items: center; /* ✅ 加這行即可垂直置中 */
+  gap: 1rem;
   margin-top: 2rem;
 }
 .page-btn {
