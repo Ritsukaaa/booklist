@@ -2,7 +2,7 @@ body {
   font-family: "Yu Gothic UI", sans-serif;
   background: #fdfdfd;
   color: #333;
-  padding: 2em;
+  padding: 2em 1em; /* 改成上下 2em、左右 1em */
 }
 .book-card {
   position: relative;
@@ -279,7 +279,7 @@ body {
 }
 .page-wrapper {
   max-width: 720px;
-  margin: 0 auto;
   width: 100%;
-  padding: 0 1rem; /* 可選，讓手機邊緣不貼齊太死板 */
+  margin-left: 2.5%;   /* ✅ 改這行，讓內容靠左對齊書卡 */
+  margin-right: auto;  /* ✅ 補這行，保留寬度彈性 */
 }
