@@ -4,12 +4,22 @@ body {
   color: #333;
   padding: 2em;
 }
+.book-card {
+  position: relative;
+  width: 95%;
+  max-width: 720px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.4rem;
+  box-sizing: border-box;
+}
 
 .book-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 }
 
 .book-card {
