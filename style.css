@@ -108,7 +108,7 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: flex-start;
-  margin-bottom: 1.5rem; /* ✅ 增加與標籤的垂直距 */
+  margin-bottom: 1.2rem; /* ✅ 增加與標籤的垂直距 */
 }
 
 .tag-row {
