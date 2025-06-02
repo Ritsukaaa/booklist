@@ -77,6 +77,12 @@ body {
 }
 
 /* 🔘 下拉選單樣式（九大標籤與評分） */
+.filter-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+}
 
 .filters select,
 #rating-filter,
@@ -101,7 +107,6 @@ body {
   align-items: stretch; /* ✅ 從 flex-start 改為 stretch，讓欄位貼齊父元素寬度 */
   width: 100%;
   margin-bottom: 1.5rem;
-  max-width: 720px; /* ✅ 避免左右太寬 */
 }
 .filters {
   display: flex;
