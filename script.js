@@ -1,3 +1,15 @@
+const tagDisplayNames = {
+  tagA: "時間",
+  tagB: "設定",
+  tagC: "題材",
+  tagD: "視角",
+  tagE: "攻受關係",
+  tagF: "攻的屬性",
+  tagG: "受的屬性",
+  tagH: "其他",
+  tagI: "結局"
+};
+
 const booksPerPage = 6;
 let currentPage = 1;
 let currentFilter = {};
@@ -59,7 +71,10 @@ function renderTagFilters() {
   tagCategories.forEach(tag => {
     const select = document.createElement("select");
     select.setAttribute("data-tag", tag);
-    select.innerHTML = `<option value="">✦ ${tag}</option>`;
+
+    const displayName = tagDisplayNames[tag] || tag;
+select.innerHTML = `<option value="">✦ ${displayName}</option>`;
+    
     const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
     [...tagSet].forEach(val => {
       const opt = document.createElement("option");
