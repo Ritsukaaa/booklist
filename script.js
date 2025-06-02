@@ -98,3 +98,11 @@ function applyFilter() {
 document.getElementById("authorSearch").addEventListener("input", applyFilter);
 renderTagFilters();
 renderBooks();
+
+document.getElementById("authorSearch").addEventListener("input", applyFilter);
+document.getElementById("rating-filter").addEventListener("change", applyFilter);
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderTagFilters();
+  applyFilter(); // 初次載入會自動渲染所有書卡與分頁
+});
