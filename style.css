@@ -252,3 +252,10 @@ body {
   line-height: 2.2; /* 對齊按鈕高度 */
   vertical-align: middle;
 }
+.filter-hint {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0 1rem 0;
+  text-align: left;
+  max-width: 720px;
+}
