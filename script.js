@@ -22,11 +22,11 @@ function createBookCard(book) {
   const tagSection = `<div class="book-tags">${tags}${plainTags}</div>`;
 
   const comment = `
-    <div class="comment">
-      <div class="comment-bar"></div>
-      <p>${book.comment}</p>
-    </div>`;
-
+  <div class="comment">
+    <div class="comment-bar"></div>
+    <p>${book.comment}</p>
+  </div>`;
+  
   const watermark = `<img class="watermark" src="${book.watermark}" style="width:${book.watermarkWidth};" />`;
 
   card.innerHTML = `${title}${stars}${meta}${tagSection}${comment}${watermark}`;
