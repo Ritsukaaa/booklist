@@ -79,9 +79,17 @@ body {
 /* 🔘 下拉選單樣式（九大標籤與評分） */
 .filter-wrapper {
   max-width: 720px;
-  margin: 0 auto;
   width: 100%;
-  padding: 0;
+  margin: 0 auto; /* ✅ 對齊書卡左右邊 */
+  padding: 0;     /* 無內距避免偏移 */
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
 }
 
 .filters select,
@@ -107,13 +115,6 @@ body {
   align-items: stretch; /* ✅ 從 flex-start 改為 stretch，讓欄位貼齊父元素寬度 */
   width: 100%;
   margin-bottom: 1.5rem;
-}
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: flex-start;
-  margin-bottom: 1.2rem; /* ✅ 增加與標籤的垂直距 */
 }
 
 .tag-row {
