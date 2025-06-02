@@ -76,25 +76,60 @@ body {
   opacity: 1;
 }
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  justify-content: center;
+/* 🔘 下拉選單樣式（九大標籤與評分） */
+.filters select,
+#rating-filter,
+.tag-filters select {
+  font-size: 0.9rem;
+  padding: 0.5em 0.8em;
+  border: 1px solid #999;
+  border-radius: 0.5rem;
+  background: #f4f4f4;
+  color: #333;
+  margin-right: 0.5em;
+  appearance: none; /* 清除原生樣式 */
+  transition: all 0.2s ease;
 }
+
+/* 🔘 滑鼠 hover */
+.filters select:hover,
+#rating-filter:hover,
+.tag-filters select:hover {
+  background: #eaeaea;
+  border-color: #666;
+}
+
+/* 🔘 點擊 focus */
+.filters select:focus,
+#rating-filter:focus,
+.tag-filters select:focus {
+  outline: none;
+  border-color: #083A33;
+  background: #fff;
+}
+
+/* 🔍 搜尋欄樣式 */
 #authorSearch {
   padding: 0.5em 0.8em;
   font-size: 0.9rem;
-  border: 1px solid #aaa;
+  border: 1px solid #999;
   border-radius: 0.5rem;
+  background: #f4f4f4;
+  color: #333;
+  transition: all 0.2s ease;
 }
-.tag-filters select {
-  padding: 0.4em;
-  font-size: 0.85rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
+
+/* 🔍 搜尋欄 hover/focus */
+#authorSearch:hover {
+  background: #eaeaea;
+  border-color: #666;
 }
+#authorSearch:focus {
+  outline: none;
+  border-color: #083A33;
+  background: #fff;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -114,24 +149,7 @@ body {
 .page-btn.active {
   background: #ccc;
 }
-.filters select,
-#rating-filter,
-#authorSearch {
-  font-size: 0.9rem;
-  padding: 0.5em 0.8em;
-  border: 1px solid #aaa;
-  border-radius: 0.5rem;
-  background: #fff;
-  color: #333;
-  margin-right: 0.5em;
-}
-.filters select:focus,
-#rating-filter:focus,
-#authorSearch:focus {
-  outline: none;
-  border-color: #555;
-  background: #f1f1f1;
-}
+
 .book-card .meta {
   font-size: 0.85rem;
   color: #666;
