@@ -100,21 +100,22 @@ body {
 .tag-filters {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* 每行之間的間距 */
-  align-items: center;
-  margin-bottom: 1.5rem;
+  gap: 1.2rem;             /* 每行之間的間距 */
+  align-items: center;     /* 置中 */
+  margin: 1.5rem auto 2rem;
 }
 
 .tag-row {
   display: flex;
-  gap: 1rem; /* 每個選單之間的間距 */
-  flex-wrap: nowrap;
   justify-content: center;
+  gap: 1.2rem;              /* 按鈕之間間距 */
+  flex-wrap: nowrap;
 }
 
 .tag-row select {
-  width: 130px; /* 固定寬度 */
-  text-align: left;
+  min-width: 110px;
+  max-width: 150px;
+  width: auto;
 }
 
 /* 🔘 滑鼠 hover */
