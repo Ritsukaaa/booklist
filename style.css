@@ -22,10 +22,6 @@ body {
   align-items: center;
 }
 
-.book-card {
-  padding: 1.4rem;
-  box-sizing: border-box;
-}
 .book-card .title {
   font-size: 1.1rem;
   font-weight: bold;
@@ -75,10 +71,6 @@ body {
   bottom: 0.6rem;
   right: 0.6rem;
   opacity: 1;
-}
-
-.book-list {
-  gap: 2rem;
 }
 
 .filters {
