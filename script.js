@@ -15,7 +15,11 @@ let currentPage = 1;
 let currentFilter = {};
 let filteredBooks = [...bookData];
 
-const tagCategories = ["tagA", "tagB", "tagC", "tagD", "tagE", "tagF", "tagG", "tagH", "tagI"];
+const tagGroups = [
+  ["tagA", "tagB", "tagC", "tagD"],             // 第1行：時間、設定、題材、視角
+  ["tagE", "tagF", "tagG"],                     // 第2行：攻受關係、攻的屬性、受的屬性
+  ["tagH", "tagI"],                             // 第3行：其他、結局
+];
 
 function createBookCard(book) {
   const card = document.createElement("div");
@@ -65,28 +69,26 @@ function updatePageInfo() {
   document.getElementById("prevPage").disabled = currentPage === 1;
   document.getElementById("nextPage").disabled = currentPage === totalPages;
 }
-
 function renderTagFilters() {
-  const filterArea = document.querySelector(".tag-filters");
-  tagCategories.forEach(tag => {
-    const select = document.createElement("select");
-    select.setAttribute("data-tag", tag);
-
-    const displayName = tagDisplayNames[tag] || tag;
-select.innerHTML = `<option value="">✦ ${displayName}</option>`;
-    
-    const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
-    [...tagSet].forEach(val => {
-      const opt = document.createElement("option");
-      opt.value = val;
-      opt.textContent = val;
-      select.appendChild(opt);
+  tagGroups.forEach((group, index) => {
+    const row = document.getElementById(`tag-row-${index + 1}`);
+    group.forEach(tag => {
+      const select = document.createElement("select");
+      select.setAttribute("data-tag", tag);
+      select.innerHTML = `<option value="">✦ ${displayName}</option>`;
+      const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
+      [...tagSet].forEach(val => {
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = val;
+        select.appendChild(opt);
+      });
+      select.addEventListener("change", () => {
+        currentFilter[tag] = select.value;
+        applyFilter();
+      });
+      row.appendChild(select);
     });
-    select.addEventListener("change", () => {
-      currentFilter[tag] = select.value;
-      applyFilter();
-    });
-    filterArea.appendChild(select);
   });
 }
 
