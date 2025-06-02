@@ -1,97 +1,114 @@
 body {
-  font-family: 'Nunito', 'YuGothic', 'Noto Sans TC', sans-serif;
-  background: #f9f9f9;
-  padding: 2rem;
+  font-family: "Yu Gothic UI", sans-serif;
+  background: #fdfdfd;
   color: #333;
+  padding: 2em;
 }
-
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.book-card {
+  position: relative;
+  width: 320px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  box-sizing: border-box;
+}
+.book-card .title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+.book-card .title a {
+  color: #000;
+  text-decoration: none;
+}
+.book-card .author {
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+.book-card .stars {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.book-card .meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+  white-space: pre-line;
+}
+.book-card .book-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.book-tags .tag {
+  background: #f7c5cc;
+  color: #083A33;
+  padding: 0.3em 0.6em;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.book-tags .plain-tags {
+  border: 1px solid #000;
+  padding: 0.3em 0.6em;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.book-card .comment {
+  background: #D0BFFF;
+  padding: 0.6em;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.book-card .watermark {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  opacity: 1;
+}
 .filters {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
 }
-
-.filters select {
-  padding: 0.5rem;
-  border-radius: 8px;
+#authorSearch {
+  padding: 0.5em 0.8em;
+  font-size: 0.9rem;
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
+}
+.tag-filters select {
+  padding: 0.4em;
+  font-size: 0.85rem;
+  border-radius: 0.5rem;
   border: 1px solid #ccc;
-  font-size: 0.9rem;
 }
-
-#card-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-/* 書卡樣式簡略化版 */
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.card h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.card .author {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.card .tags {
-  margin-top: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.card .tag {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: #f7c5cc;
-  color: #083A33;
-}
-
-.card .tag.b {
-  background: #083A33;
-  color: #f7c5cc;
-}
-
-.card .rating {
-  color: #F9BF45;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
-
-.card .summary {
-  margin-top: 0.5rem;
-  padding-left: 0.5rem;
-  border-left: 5px solid #D0BFFF;
-}
-
 .pagination {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-top: 2rem;
 }
-
-.pagination button {
-  padding: 0.5rem 1rem;
+.page-btn {
+  background: #eee;
   border: none;
-  background: #ddd;
-  border-radius: 8px;
+  border-radius: 5px;
+  padding: 0.4em 0.8em;
   cursor: pointer;
+  transition: background 0.2s;
 }
-
-.pagination span {
-  font-size: 0.9rem;
+.page-btn:hover,
+.page-btn.active {
+  background: #ccc;
 }
