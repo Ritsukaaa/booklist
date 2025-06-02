@@ -9,24 +9,27 @@ function createBookCard(book) {
   const card = document.createElement("div");
   card.className = "book-card";
 
-  const title = `<div class="title"><a href="${book.link}" target="_blank">《${book.title}》</a></div>`;
-  const author = `<div class="author">（作者：${book.author}）</div>`;
+  const title = `<h3 class="title">《<a href="${book.link}" target="_blank">${book.title}</a>》<span class="author">作者：${book.author}</span></h3>`;
   const stars = `<div class="stars">${book.stars}</div>`;
   const meta = `<div class="meta">${book.meta || ""}</div>`;
 
-  const tags = book.tags
+  const tags = (book.tags || [])
     .map(tag => `<span class="tag">${tag}</span>`)
     .join("");
-  const plainTags = book.plainTags
+  const plainTags = (book.plainTags || [])
     .map(tag => `<span class="plain-tags">${tag}</span>`)
     .join("");
   const tagSection = `<div class="book-tags">${tags}${plainTags}</div>`;
 
-  const comment = `<div class="comment">${book.comment}</div>`;
+  const comment = `
+    <div class="comment">
+      <div class="comment-bar"></div>
+      <p>${book.comment}</p>
+    </div>`;
 
   const watermark = `<img class="watermark" src="${book.watermark}" style="width:${book.watermarkWidth};" />`;
 
-  card.innerHTML = `${title}${author}${stars}${meta}${tagSection}${comment}${watermark}`;
+  card.innerHTML = `${title}${stars}${meta}${tagSection}${comment}${watermark}`;
   return card;
 }
 
@@ -39,25 +42,16 @@ function renderBooks() {
   const currentBooks = filteredBooks.slice(start, end);
 
   currentBooks.forEach(book => list.appendChild(createBookCard(book)));
-  renderPagination();
+  updatePageInfo();
 }
 
-function renderPagination() {
+function updatePageInfo() {
+  const info = document.getElementById("pageInfo");
   const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
-  const pagination = document.getElementById("pagination");
-  pagination.innerHTML = "";
+  info.textContent = `第 ${currentPage} 頁，共 ${totalPages} 頁`;
 
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement("button");
-    btn.className = "page-btn";
-    if (i === currentPage) btn.classList.add("active");
-    btn.textContent = i;
-    btn.addEventListener("click", () => {
-      currentPage = i;
-      renderBooks();
-    });
-    pagination.appendChild(btn);
-  }
+  document.getElementById("prevPage").disabled = currentPage === 1;
+  document.getElementById("nextPage").disabled = currentPage === totalPages;
 }
 
 function renderTagFilters() {
@@ -83,20 +77,6 @@ function renderTagFilters() {
 
 function applyFilter() {
   filteredBooks = bookData.filter(book => {
-    return tagCategories.every(tag => {
-      return !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag]);
-    });
-  });
-  const keyword = document.getElementById("authorSearch").value.trim();
-  if (keyword) {
-    filteredBooks = filteredBooks.filter(book => book.author.includes(keyword));
-  }
-  currentPage = 1;
-  renderBooks();
-}
-
-function applyFilter() {
-  filteredBooks = bookData.filter(book => {
     const tagMatch = tagCategories.every(tag =>
       !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag])
     );
@@ -115,10 +95,22 @@ function applyFilter() {
   renderBooks();
 }
 
-// ✅ 等 DOM 完全載入後才執行這些操作
 document.addEventListener("DOMContentLoaded", () => {
   renderTagFilters();
   document.getElementById("authorSearch").addEventListener("input", applyFilter);
   document.getElementById("rating-filter")?.addEventListener("change", applyFilter);
-  applyFilter(); // 初始渲染
+  document.getElementById("prevPage").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderBooks();
+    }
+  });
+  document.getElementById("nextPage").addEventListener("click", () => {
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderBooks();
+    }
+  });
+  applyFilter();
 });
