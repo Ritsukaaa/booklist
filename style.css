@@ -78,11 +78,9 @@ body {
 
 /* 🔘 下拉選單樣式（九大標籤與評分） */
 .filter-wrapper {
-  max-width: 720px;
   width: 100%;
-  margin-left: auto;
-  margin-right: 0;
-  padding-right: 0.2rem; /* ⬅️ 可微調對齊效果 */
+  margin: 0;
+  padding: 0;
 }
 
 .filters {
@@ -281,6 +279,7 @@ body {
 }
 .page-wrapper {
   max-width: 720px;
-  margin: 0 auto; /* ✅ 置中整個內容區 */
+  margin: 0 auto;
   width: 100%;
+  padding: 0 1rem; /* 可選，讓手機邊緣不貼齊太死板 */
 }
