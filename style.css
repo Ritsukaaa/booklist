@@ -196,3 +196,8 @@ body {
 .tag-filters {
   margin-bottom: 1.5rem; /* 或視覺需要調整為 2rem */
 }
+.pagination span {
+  font-size: 0.9rem;
+  line-height: 2.2; /* 對齊按鈕高度 */
+  vertical-align: middle;
+}
