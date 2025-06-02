@@ -77,7 +77,7 @@ function renderTagFilters() {
     group.forEach(tag => {
       const select = document.createElement("select");
       select.setAttribute("data-tag", tag);
-      select.innerHTML = `<option value="">✦ ${tagDisplayNames[tag]}</option>`;
+      select.innerHTML = `<option value=""> ${tagDisplayNames[tag]}</option>`;
       const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
       [...tagSet].forEach(val => {
         const opt = document.createElement("option");
