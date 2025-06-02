@@ -10,12 +10,17 @@ const tagDisplayNames = {
   tagI: "結局"
 };
 
+const booksPerPage = 6;
+let currentPage = 1;
+let currentFilter = {};
+let filteredBooks = [...bookData];
+
 const tagGroups = [
   ["tagA", "tagB", "tagC", "tagD"],
   ["tagE", "tagF", "tagG"],
   ["tagH", "tagI"]
 ];
-const tagCategories = tagGroups.flat(); // ⭐ 給篩選邏輯用
+const tagCategories = tagGroups.flat(); // ✅ 不可漏！
 
 function renderTagFilters() {
   tagGroups.forEach((group, index) => {
