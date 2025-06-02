@@ -118,13 +118,6 @@ body {
   max-width: 100%;
 }
 
-@media (max-width: 600px) {
-  .tag-row select {
-    font-size: 0.8rem;
-    padding: 0.4em 0.6em;
-  }
-}
-
 /* 🔘 滑鼠 hover */
 .filters select:hover,
 #rating-filter:hover,
