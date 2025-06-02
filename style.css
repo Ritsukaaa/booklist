@@ -111,13 +111,12 @@ body {
   gap: 0.75rem;
   justify-content: flex-start;
 }
-
 .tag-row select {
   min-width: 80px;
   max-width: 150px;
   width: auto;
   padding: 0.5em 0.8em;
-  padding-right: 2.2em; /* ✅ 預留空間給右側小 v */
+  padding-right: 2em; /* 預留空間給右側小 v */
   font-size: 0.9rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
@@ -127,7 +126,7 @@ body {
   transition: all 0.2s ease;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23333' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.8em center; /* ✅ 小v靠右一點避免疊字 */
+  background-position: right 0.6em center;
   background-size: 10px;
 }
 
