@@ -7,21 +7,33 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 評分篩選器 -->
-<select id="rating-filter">
-  <option value="">✦ 評分</option>
-  <option value="5">★★★★★</option>
-  <option value="4">★★★★☆</option>
-  <option value="3">★★★☆☆</option>
-  <option value="2">★★☆☆☆</option>
-  <option value="1">★☆☆☆☆</option>
-</select>
-  <div class="tag-filters"></div>
+
+  <!-- 🔍 篩選區 -->
   <div class="filters">
+    <!-- 作者搜尋 -->
     <input type="text" id="authorSearch" placeholder="🔍 搜尋作者名稱..." />
+
+    <!-- 評分篩選器 -->
+    <select id="rating-filter">
+      <option value="">✦ 評分</option>
+      <option value="5">★★★★★</option>
+      <option value="4">★★★★☆</option>
+      <option value="3">★★★☆☆</option>
+      <option value="2">★★☆☆☆</option>
+      <option value="1">★☆☆☆☆</option>
+    </select>
   </div>
+
+  <!-- 🔖 九大標籤篩選 -->
+  <div class="tag-filters"></div>
+
+  <!-- 📚 書卡容器 -->
   <div id="bookList" class="book-list"></div>
+
+  <!-- ⏩ 頁碼區 -->
   <div id="pagination" class="pagination"></div>
+
+  <!-- 📦 載入資料與主程式 -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
