@@ -279,8 +279,3 @@ body {
   margin-left: auto;
   margin-right: 0;
 }
-
-.filters,
-.filter-hint {
-  max-width: 100%;
-}
