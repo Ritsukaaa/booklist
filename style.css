@@ -4,12 +4,14 @@ body {
   color: #333;
   padding: 2em;
 }
+
 .book-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 }
+
 .book-card {
   padding: 1.4rem;
   box-sizing: border-box;
