@@ -130,18 +130,16 @@ body {
 .filters select:hover,
 #rating-filter:hover,
 .tag-filters select:hover {
-  background-color: #0f4a3a;
-  border-color: #f7c5cc;
+  background-color: #e0e0e0;
+  border-color: #aaa;
 }
 
 /* 🔘 點擊 focus */
 .filters select:focus,
 #rating-filter:focus,
 .tag-filters select:focus {
-  outline: none;
-  background-color: #0f4a3a;
-  border-color: #f7c5cc;
-
+  background-color: #fff;
+  border-color: #888;
 }
 
 /* 🔍 搜尋欄樣式 */
