@@ -7,9 +7,18 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- 評分篩選器 -->
+<select id="rating-filter">
+  <option value="">✦ 評分</option>
+  <option value="5">★★★★★</option>
+  <option value="4">★★★★☆</option>
+  <option value="3">★★★☆☆</option>
+  <option value="2">★★☆☆☆</option>
+  <option value="1">★☆☆☆☆</option>
+</select>
+  <div class="tag-filters"></div>
   <div class="filters">
     <input type="text" id="authorSearch" placeholder="🔍 搜尋作者名稱..." />
-    <div class="tag-filters"></div>
   </div>
   <div id="bookList" class="book-list"></div>
   <div id="pagination" class="pagination"></div>
