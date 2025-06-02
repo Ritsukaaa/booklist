@@ -113,9 +113,9 @@ body {
 }
 
 .tag-row select {
-  width: auto;
+  width: fit-content;
   min-width: 80px;
-  max-width: 130px;
+  max-width: 100%;
 }
 
 @media (max-width: 600px) {
