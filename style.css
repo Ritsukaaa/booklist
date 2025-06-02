@@ -112,3 +112,21 @@ body {
 .page-btn.active {
   background: #ccc;
 }
+.filters select,
+#rating-filter,
+#authorSearch {
+  font-size: 0.9rem;
+  padding: 0.5em 0.8em;
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #333;
+  margin-right: 0.5em;
+}
+.filters select:focus,
+#rating-filter:focus,
+#authorSearch:focus {
+  outline: none;
+  border-color: #555;
+  background: #f1f1f1;
+}
