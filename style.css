@@ -80,10 +80,10 @@ body {
 .filter-wrapper {
   max-width: 720px;
   width: 100%;
-  margin: 0 auto;
-  padding-left: 1.4rem; /* ⬅ 與書卡相同的 padding 值 */
+  margin: 0 auto; /* ✅ 置中 */
+  padding-left: 1.4rem;  /* ✅ 與書卡 padding 對齊 */
   padding-right: 1.4rem;
-  box-sizing: border-box; /* ⬅ 確保 padding 不超出寬度 */
+  box-sizing: border-box;
 }
 
 .filters {
@@ -279,11 +279,4 @@ body {
   max-width: 720px;
   margin-left: auto;
   margin-right: 0;
-}
-.page-wrapper {
-  max-width: 720px;
-  width: 100%;
-  margin-left: 0;
-  margin-right: auto;
-  border: 1px dashed red;  /* 測試用，可隨時拿掉 */
 }
