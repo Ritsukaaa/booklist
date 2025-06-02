@@ -87,7 +87,6 @@ body {
   background: #f4f4f4;
   color: #333;
   margin-right: 0.5em;
-  appearance: none; /* 清除原生樣式 */
   transition: all 0.2s ease;
 }
 
