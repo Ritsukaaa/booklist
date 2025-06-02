@@ -192,3 +192,7 @@ body {
 .pagination button:hover {
   background: #ccc;
 }
+
+.tag-filters {
+  margin-bottom: 1.5rem; /* 或視覺需要調整為 2rem */
+}
