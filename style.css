@@ -77,11 +77,13 @@ body {
 }
 
 /* 🔘 下拉選單樣式（九大標籤與評分） */
+
 .filters select,
 #rating-filter,
 .tag-filters select {
   font-size: 0.9rem;
   padding: 0.5em 0.8em;
+  padding-right: 2em; /* 預留空間給右側的V箭頭 */
   border: 1px solid #999;
   border-radius: 0.5rem;
   background: #f4f4f4;
@@ -89,6 +91,14 @@ body {
   margin-right: 0.5em;
   transition: all 0.2s ease;
 }
+
+  .tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* ← 置中對齊 */
+  gap: 1rem;                /* ← 每個選單之間間距 */
+  margin-bottom: 1.5rem;
+  }
 
 /* 🔘 滑鼠 hover */
 .filters select:hover,
