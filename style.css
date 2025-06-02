@@ -124,6 +124,8 @@ body {
 }
 .tag-row select {
   min-width: 80px;
+  max-width: 150px;
+  width: auto;
   padding: 0.5em 0.8em;
   padding-right: 2em; /* 預留空間給右側小 v */
   font-size: 0.9rem;
@@ -137,8 +139,6 @@ body {
   background-repeat: no-repeat;
   background-position: right 0.6em center;
   background-size: 10px;
-  width: 100%;
-  max-width: 100%;
 }
 
 /* 🔘 滑鼠 hover */
