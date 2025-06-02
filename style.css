@@ -82,7 +82,7 @@ body {
   width: 100%;
   margin-left: auto;
   margin-right: 0;
-  padding-right: 0.2rem; /* ✅ 小幅微調與書卡右側對齊一致 */
+  padding-right: 0.2rem; /* ⬅️ 可微調對齊效果 */
 }
 
 .filters {
@@ -276,7 +276,10 @@ body {
   margin: 0.5rem 0 1rem 0;
   text-align: left;
   max-width: 720px;
+  margin-left: auto;
+  margin-right: 0;
 }
+
 .filters,
 .filter-hint {
   max-width: 100%;
