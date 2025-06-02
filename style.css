@@ -281,5 +281,6 @@ body {
 }
 .page-wrapper {
   max-width: 720px;
-  margin: 0 auto; /* 置中頁面 */
+  margin: 0 auto; /* ✅ 置中整個內容區 */
+  width: 100%;
 }
