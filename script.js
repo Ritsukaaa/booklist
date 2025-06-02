@@ -26,7 +26,7 @@ function createBookCard(book) {
   const card = document.createElement("div");
   card.className = "book-card";
 
-  const title = `<h3 class="title">《<a href="${book.link}" target="_blank">${book.title}</a>》<span class="author">作者：${book.author}</span></h3>`;
+  const title = `<h3 class="title"><a href="${book.link}" target="_blank">${book.title}</a><span class="author">作者：${book.author}</span></h3>`;
   const stars = `<div class="stars">${book.stars}</div>`;
   const meta = `<div class="meta">${book.meta || ""}</div>`;
 
