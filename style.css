@@ -123,6 +123,13 @@ body {
 
 }
 
+.tag-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
 /* 🔍 搜尋欄樣式 */
 #authorSearch {
   padding: 0.5em 0.8em;
