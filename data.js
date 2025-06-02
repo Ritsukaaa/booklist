@@ -1,38 +1,36 @@
-const books = [
+const bookData = [
   {
-    書名: "養鬼",
-    書籍連結: "https://example.com/ghost",
-    作者: "作者A",
-    星星符號: "⭐⭐⭐⭐",
-    星數: "4",
-    是否棄文: "N",
-    短評: "這本真的太有意思了，設定精巧，角色立體。",
-    標籤A: "靈異",
-    標籤B: "現代",
-    標籤C: "年下",
-    標籤D: "溫柔攻",
-    標籤E: "",
-    標籤F: "",
-    標籤G: "",
-    標籤H: "",
-    標籤I: ""
+    id: 1,
+    title: "《養鬼》",
+    author: "金丙",
+    url: "https://example.com/yanggui",
+    rating: "★★★★☆",
+    meta: "HE｜年下｜現代靈異",
+    tags: {
+      tagA: ["現代"],
+      tagB: ["靈異"],
+      tagC: ["養成"],
+      tagD: ["第一人稱"],
+      tagE: ["主受"],
+      tagF: ["年下攻", "忠犬攻"],
+      tagG: ["天然受", "通靈受"],
+      tagH: ["年齡差"],
+      tagI: ["HE"]
+    },
+    review: "文筆和氣氛都不錯，主角互動蠻可愛的，雖然主線稍微平鋪直敘，但仍值得一看。",
+    isAbandoned: false
   },
   {
-    書名: "棄坑之作",
-    書籍連結: "https://example.com/drop",
-    作者: "作者B",
-    星星符號: "⭐",
-    星數: "1",
-    是否棄文: "Y",
-    短評: "設定不錯，但文筆實在無法撐下去。",
-    標籤A: "古代",
-    標籤B: "修真",
-    標籤C: "",
-    標籤D: "",
-    標籤E: "",
-    標籤F: "",
-    標籤G: "",
-    標籤H: "",
-    標籤I: ""
+    id: 2,
+    title: "《棄坑書》",
+    author: "無名氏",
+    url: "https://example.com/abandoned",
+    rating: "★☆☆☆☆",
+    meta: "棄文｜角色邏輯錯亂｜劇情崩壞",
+    tags: {
+      tagDrop: ["邏輯錯亂", "感情線牽強"]
+    },
+    review: "看到中段人物突然OOC太嚴重，劇情也開始拖戲，忍痛棄文。",
+    isAbandoned: true
   }
 ];
