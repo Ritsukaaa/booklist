@@ -280,6 +280,7 @@ body {
 .page-wrapper {
   max-width: 720px;
   width: 100%;
-  margin-left: 2.5%;   /* ✅ 改這行，讓內容靠左對齊書卡 */
-  margin-right: auto;  /* ✅ 補這行，保留寬度彈性 */
+  margin-left: 0;
+  margin-right: auto;
+  border: 1px dashed red;  /* 測試用，可隨時拿掉 */
 }
