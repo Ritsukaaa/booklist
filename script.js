@@ -95,14 +95,30 @@ function applyFilter() {
   renderBooks();
 }
 
-document.getElementById("authorSearch").addEventListener("input", applyFilter);
-renderTagFilters();
-renderBooks();
+function applyFilter() {
+  filteredBooks = bookData.filter(book => {
+    const tagMatch = tagCategories.every(tag =>
+      !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag])
+    );
 
-document.getElementById("authorSearch").addEventListener("input", applyFilter);
-document.getElementById("rating-filter").addEventListener("change", applyFilter);
+    const keyword = document.getElementById("authorSearch").value.trim();
+    const authorMatch = keyword === "" || book.author.includes(keyword);
 
+    const ratingFilter = document.getElementById("rating-filter")?.value || "";
+    const ratingMatch =
+      !ratingFilter || book.stars.startsWith("★".repeat(ratingFilter));
+
+    return tagMatch && authorMatch && ratingMatch;
+  });
+
+  currentPage = 1;
+  renderBooks();
+}
+
+// ✅ 等 DOM 完全載入後才執行這些操作
 document.addEventListener("DOMContentLoaded", () => {
   renderTagFilters();
-  applyFilter(); // 初次載入會自動渲染所有書卡與分頁
+  document.getElementById("authorSearch").addEventListener("input", applyFilter);
+  document.getElementById("rating-filter")?.addEventListener("change", applyFilter);
+  applyFilter(); // 初始渲染
 });
