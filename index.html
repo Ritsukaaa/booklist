@@ -2,46 +2,17 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>書單展示頁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>書卡展示</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <section class="filters">
-      <select id="ratingFilter">
-        <option value="">⭐ 全部星等</option>
-        <option value="5">⭐⭐⭐⭐⭐ 5星</option>
-        <option value="4">⭐⭐⭐⭐ 4星</option>
-        <option value="3">⭐⭐⭐ 3星</option>
-        <option value="2">⭐⭐ 2星</option>
-        <option value="1">⭐ 1星</option>
-      </select>
-
-      <select id="tagAFilter">
-        <option value="">🏷️ 標籤A</option>
-      </select>
-
-      <select id="tagBFilter">
-        <option value="">🏷️ 標籤B</option>
-      </select>
-
-      <select id="abandonFilter">
-        <option value="">📚 類型</option>
-        <option value="N">推文</option>
-        <option value="Y">棄文</option>
-      </select>
-    </section>
-
-    <section id="card-container"></section>
-
-    <section class="pagination">
-      <button id="prevPage">← 上一頁</button>
-      <span id="pageInfo">第 1 頁</span>
-      <button id="nextPage">下一頁 →</button>
-    </section>
-  </main>
-
+  <div class="filters">
+    <input type="text" id="authorSearch" placeholder="🔍 搜尋作者名稱..." />
+    <div class="tag-filters"></div>
+  </div>
+  <div id="bookList" class="book-list"></div>
+  <div id="pagination" class="pagination"></div>
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
