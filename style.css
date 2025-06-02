@@ -82,17 +82,17 @@ body {
 #rating-filter,
 .tag-filters select {
   padding: 0.5em 0.8em;
-  padding-right: 2em; /* 預留空間給右側的V箭頭 */
+  padding-right: 2em;
   font-size: 0.85rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  background: #fff;
-  color: #333;
+  border-radius: 999px;
+  border: 1px solid #083A33;
+  background: #083A33;
+  color: #f7c5cc;
   margin-right: 0;
   appearance: none;
   transition: all 0.2s ease;
 
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='10'%20height='6'%20viewBox='0%200%2010%206'%3E%3Cpath%20fill='%23333'%20d='M0%200l5%206%205-6z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='10'%20height='6'%20viewBox='0%200%2010%206'%3E%3Cpath%20fill='%23f7c5cc'%20d='M0%200l5%206%205-6z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.8em center;
   background-size: 10px;
@@ -110,8 +110,8 @@ body {
 .filters select:hover,
 #rating-filter:hover,
 .tag-filters select:hover {
-  background: #eaeaea;
-  border-color: #666;
+  background: #0b4a3f;
+  border-color: #f7c5cc;
 }
 
 /* 🔘 點擊 focus */
@@ -119,8 +119,8 @@ body {
 #rating-filter:focus,
 .tag-filters select:focus {
   outline: none;
-  border-color: #083A33;
-  background: #fff;
+  background: #0b4a3f;
+  border-color: #f7c5cc;
 }
 
 /* 🔍 搜尋欄樣式 */
