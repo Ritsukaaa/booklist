@@ -282,3 +282,26 @@ body {
   margin-left: auto;
   margin-right: 0;
 }
+.jump-to {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+.jump-to input {
+  padding: 0.2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+.jump-to button {
+  padding: 0.3em 0.6em;
+  font-size: 0.85rem;
+  border: none;
+  background: #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.jump-to button:hover {
+  background: #bbb;
+}
