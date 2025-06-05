@@ -70,6 +70,18 @@ function updatePageInfo() {
   document.getElementById("prevPage").disabled = currentPage === 1;
   document.getElementById("nextPage").disabled = currentPage === totalPages;
 }
+document.getElementById("jumpBtn").addEventListener("click", () => {
+  const input = document.getElementById("jumpInput").value;
+  const targetPage = parseInt(input);
+  const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+  if (!isNaN(targetPage) && targetPage >= 1 && targetPage <= totalPages) {
+    currentPage = targetPage;
+    renderBooks();
+  } else {
+    alert("請輸入有效頁碼！");
+  }
+});
 
 function renderTagFilters() {
   tagGroups.forEach((group, index) => {
