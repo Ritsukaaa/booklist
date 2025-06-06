@@ -305,7 +305,7 @@ body {
 .jump-to button:hover {
   background: #bbb;
 }
-.top-banner img,{
+.top-banner img {
   max-width: 100%;
   height: auto;
   display: block;
