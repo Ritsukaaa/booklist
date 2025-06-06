@@ -305,3 +305,10 @@ body {
 .jump-to button:hover {
   background: #bbb;
 }
+.top-banner img,
+.bottom-banner img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 2rem auto; /* 中央置中、底部留白 */
+}
