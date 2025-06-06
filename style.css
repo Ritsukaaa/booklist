@@ -47,10 +47,11 @@ body {
 .book-card .meta {
   font-size: 0.85rem;
   color: #666;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: calc(100% - 130px);
+  font-family: inherit; /* ✅ 確保繼承 body 的字體 */
   margin-bottom: 0.8rem;
-  white-space: pre-wrap;       /* ✅ 能換行 + 保留換行符 */
-  word-break: break-word;      /* ✅ 超長單字也能斷行 */
-  max-width: calc(100% - 130px); /* ✅ 避開水印位置（你水印寬是 120px，預留空間） */
 }
 .book-card .book-tags {
   display: flex;
