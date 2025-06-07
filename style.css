@@ -309,9 +309,23 @@ body {
 .filter-hint {
   font-size: 0.85rem;
   color: #666;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem auto 1.5rem auto; /* 上下間距與置中 */
+  padding: 1.2em 1em;  /* 內距調整為更緊湊 */
   text-align: left;
   max-width: 720px;
-  margin-left: auto;
-  margin-right: 0;
+  border: 8px solid #eee;
+  position: relative;
+  z-index: 0;
+}
+
+.filter-hint::before {
+  background-color: #cca497;
+  content: '';
+  display: block;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 8px;
+  height: 8px;
+  z-index: 1;
 }
