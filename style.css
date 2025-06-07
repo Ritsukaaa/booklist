@@ -306,29 +306,7 @@ body {
   margin: 0 auto 2rem auto; /* 中央置中、底部留白 */
 }
 
-/* ワンポイント */
 .filter-hint {
-    margin: 0 auto 2em; /* 外側の余白（上下と中央配置） */
-    padding: 2em; /* 内側余白 */
-    position: relative; /* 相対位置指定 */
-    border: 8px solid #eee; /* 枠線の太さ（8px）、種類（実線）、色（#eee） */
-    z-index: 0; /* 重なり順を調整 */
-}
-
-.filter-hint::before {
-    background-color: #cca497; /* ワンポイントの色（#cca497） */
-    content: ''; /* 擬似要素にコンテンツなし */
-    display: block; /* ブロック要素として表示 */
-    position: absolute; /* 絶対位置指定 */
-    top: -8px; /* 枠の外側（上）に配置 */
-    left: -8px; /* 枠の外側（左）に配置 */
-    width: 8px; /* ワンポイントのサイズ（幅） */
-    height: 8px; /* ワンポイントのサイズ（高さ） */
-    z-index: 1; /* ボックスより前面に表示 */
-}
-
-/* pタグの余白 */
-.filter-hint p {
   font-size: 0.85rem;
   color: #666;
   margin: 0.5rem 0 1rem 0;
