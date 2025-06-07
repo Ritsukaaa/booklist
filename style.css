@@ -312,7 +312,7 @@ body {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 2.5rem auto 0 auto; /* 上方拉遠頁碼，下方不動 */
+  margin: 2rem auto 0 auto; /* 上方拉遠頁碼，下方不動 */
 }
 
 .filter-hint {
