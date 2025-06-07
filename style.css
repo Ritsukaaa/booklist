@@ -303,7 +303,7 @@ body {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto 2rem auto; /* 中央置中、底部留白 */
+  margin: 0 auto 1.5rem auto; /* 中央置中、底部留白 */
 }
 
 .filter-hint {
