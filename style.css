@@ -298,19 +298,42 @@ body {
 .jump-to button:hover {
   background: #bbb;
 }
-.top-banner img,
+
+/* 🔼 上方圖片（往上貼） */
+.top-banner img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: -1.2rem auto 0.8rem auto; /* 上負值縮短留白，下減少空隙 */
+}
+
+/* 🔽 下方圖片（往下拉） */
 .bottom-banner img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto 1.5rem auto; /* 中央置中、底部留白 */
+  margin: 2.5rem auto 0 auto; /* 上方拉遠頁碼，下方不動 */
 }
 
 .filter-hint {
   font-size: 0.85rem;
   color: #666;
-  margin: 0.5rem auto 1.5rem auto; /* 上下間距與置中 */
-  padding: 1.2em 1em;  /* 內距調整為更緊湊 */
+  text-align: left;
+  max-width: 720px;
+  margin-top: 0.3rem;       /* 上方縮小一點距離圖片 */
+  margin-bottom: 1rem;      /* 下方略縮，靠近篩選器 */
+  margin-left: auto;
+  margin-right: 0;          /* ✅ 保持右對齊 */
+}
+
+.filter-hint {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.3rem;       /* ⬅️ 上方縮近一點圖片 */
+  margin-bottom: 1rem;      /* ⬅️ 下方縮短一點靠近篩選器 */
+  margin-left: auto;        /* ⬅️ 維持右對齊或居中請依情況調整 */
+  margin-right: auto;
+  padding: 1.2em 1em;
   text-align: left;
   max-width: 720px;
   border: 8px solid #eee;
