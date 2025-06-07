@@ -1,5 +1,5 @@
 const bookData = [
- {
+{
     "title": "《這是正常的呀寶貝》",
     "author": "短毛貓",
     "link": "https://pomelo1122.blog.fc2.com/blog-entry-155.html",
@@ -7,7 +7,7 @@ const bookData = [
     "meta": "12%棄｜維爾 × 裴遠行",
     "tags": [],
     "plainTags": [],
-    "comment": "故事、人設、文筆都爛。",
+    "comment": "雖然喜歡人魚攻，但這篇真的不行。故事、人設、文筆都爛。",
     "tagA": [],
     "tagB": [],
     "tagC": [],
@@ -32,7 +32,7 @@ const bookData = [
     "meta": "13%棄",
     "tags": [],
     "plainTags": [],
-    "comment": "寫得有點太囉嗦了。",
+    "comment": "雖然喜歡論壇體，但這篇寫得有點太囉嗦了。",
     "tagA": [],
     "tagB": [],
     "tagC": [],
@@ -5351,11 +5351,11 @@ const bookData = [
     "tagD": [
       "第三人稱"
     ],
-    "tagE": [],
+    "tagE": [
+     "師生"
+],
     "tagF": [],
-    "tagG": [
-      "師生"
-    ],
+    "tagG": [],
     "tagH": [],
     "tagI": [
       "HE"
