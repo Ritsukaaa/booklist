@@ -318,17 +318,6 @@ body {
 .filter-hint {
   font-size: 0.85rem;
   color: #666;
-  text-align: left;
-  max-width: 720px;
-  margin-top: 0.3rem;       /* 上方縮小一點距離圖片 */
-  margin-bottom: 1rem;      /* 下方略縮，靠近篩選器 */
-  margin-left: auto;
-  margin-right: 0;          /* ✅ 保持右對齊 */
-}
-
-.filter-hint {
-  font-size: 0.85rem;
-  color: #666;
   margin-top: 0.3rem;       /* ⬅️ 上方縮近一點圖片 */
   margin-bottom: 1rem;      /* ⬅️ 下方縮短一點靠近篩選器 */
   margin-left: auto;        /* ⬅️ 維持右對齊或居中請依情況調整 */
