@@ -319,7 +319,7 @@ body {
   font-size: 0.85rem;
   color: #666;
   margin-top: 0.3rem;       /* ⬅️ 上方縮近一點圖片 */
-  margin-bottom: 1rem;      /* ⬅️ 下方縮短一點靠近篩選器 */
+  margin-bottom: 1.5rem;      /* ⬅️ 下方縮短一點靠近篩選器 */
   margin-left: auto;        /* ⬅️ 維持右對齊或居中請依情況調整 */
   margin-right: auto;
   padding: 1.2em 1em;
