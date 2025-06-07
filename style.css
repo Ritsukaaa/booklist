@@ -341,14 +341,32 @@ body {
   color: #444;
 }
 .number {
+  position: relative;
   font-family: 'Noto Serif JP', serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #555;
+  font-size: 36px;                /* ✅ 原本是 64px，這裡縮小為 36px */
+  color: #333;
+  font-weight: 400;
+  line-height: 1;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto 0.5rem auto;     /* ✅ 數字下方留點空間 */
+  width: 64px;                    /* ✅ 固定寬高製作完美圓形 */
+  height: 64px;
   background-color: #eee9e6;
   border-radius: 50%;
-  padding: 0.3em 0.7em;
-  margin-right: 0.6em;
-  display: inline-block;
-  vertical-align: middle;
+  padding: 12px;                  /* ✅ 減少 padding 與原大小匹配 */
+}
+
+.number::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  right: -6px;
+  width: 30px;
+  height: 60px;
+  border-left: 1px solid #333;
+  transform: rotate(45deg);       /* ✅ 用 transform 替代 rotate */
+  background-color: #f8f8f8;      /* ✅ 和 body 背景一致 */
+  z-index: -1;
 }
