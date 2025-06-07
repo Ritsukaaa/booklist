@@ -341,3 +341,30 @@ body {
   height: 8px;
   z-index: 1;
 }
+@media (max-width: 600px) {
+  /* 篩選器字體與間距縮小 */
+  .filters select,
+  #rating-filter,
+  .tag-filters select,
+  #authorSearch {
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+  }
+
+  /* 頁碼按鈕縮小 */
+  .pagination button {
+    font-size: 0.8rem;
+    padding: 0.3em 0.6em;
+  }
+
+  .pagination span {
+    font-size: 0.8rem;
+  }
+
+  /* 跳轉頁碼欄位也縮小 */
+  .jump-to input,
+  .jump-to button {
+    font-size: 0.8rem;
+    padding: 0.3em 0.5em;
+  }
+}
