@@ -368,3 +368,15 @@ body {
     padding: 0.3em 0.5em;
   }
 }
+.page-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+  .pagination {
+    flex-direction: column;
+  }
+}
