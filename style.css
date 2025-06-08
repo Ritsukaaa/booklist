@@ -130,7 +130,7 @@ body {
 }
 .tag-row select {
   min-width: 80px;
-  max-width: 180px;
+  max-width: 200px;
   width: auto;
   padding: 0.5em 0.8em;
   padding-right: 2em; /* 預留空間給右側小 v */
