@@ -107,20 +107,26 @@ function renderTagFilters() {
 }
 
 function applyFilter() {
+  const keyword = document.getElementById("authorSearch")?.value.trim().toLowerCase() || "";
+
   filteredBooks = bookData.filter(book => {
+    // 替換成書名 + 作者一起搜尋（都支援模糊、大小寫無關）
+    const title = book.title || "";
+    const author = book.author || "";
+    const titleMatch = title.toLowerCase().includes(keyword);
+    const authorMatch = author.toLowerCase().includes(keyword);
+    const textMatch = keyword === "" || titleMatch || authorMatch;
+
+    // 標籤篩選
     const tagMatch = tagCategories.every(tag =>
       !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag])
     );
 
-    const keyword = document.getElementById("authorSearch").value.trim().toLowerCase();  
-const author = book.author || "";
-const authorMatch = keyword === "" || author.toLowerCase().includes(keyword);
-
+    // 評分篩選
     const ratingFilter = document.getElementById("rating-filter")?.value || "";
-    const ratingMatch =
-      !ratingFilter || book.stars.startsWith("★".repeat(ratingFilter));
+    const ratingMatch = !ratingFilter || book.stars.startsWith("★".repeat(ratingFilter));
 
-    return tagMatch && authorMatch && ratingMatch;
+    return tagMatch && textMatch && ratingMatch;
   });
 
   currentPage = 1;
@@ -129,14 +135,21 @@ const authorMatch = keyword === "" || author.toLowerCase().includes(keyword);
 
 document.addEventListener("DOMContentLoaded", () => {
   renderTagFilters();
-  document.getElementById("authorSearch").addEventListener("input", applyFilter);
+
+  const authorInput = document.getElementById("authorSearch");
+  if (authorInput) {
+    authorInput.addEventListener("input", applyFilter);
+  }
+
   document.getElementById("rating-filter")?.addEventListener("change", applyFilter);
+
   document.getElementById("prevPage").addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
       renderBooks();
     }
   });
+
   document.getElementById("nextPage").addEventListener("click", () => {
     const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
     if (currentPage < totalPages) {
@@ -144,5 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
       renderBooks();
     }
   });
+
   applyFilter();
 });
