@@ -39,10 +39,10 @@ function createBookCard(book) {
   const tagSection = `<div class="book-tags">${tags}${plainTags}</div>`;
 
   const comment = `
-  <div class="comment">
-    <div class="comment-bar"></div>
-    <p>${book.comment}</p>
-  </div>`;
+    <div class="comment">
+      <div class="comment-bar"></div>
+      <p>${book.comment}</p>
+    </div>`;
 
   const watermark = `<img class="watermark" src="${book.watermark}" style="width:${book.watermarkWidth};" />`;
 
@@ -70,18 +70,6 @@ function updatePageInfo() {
   document.getElementById("prevPage").disabled = currentPage === 1;
   document.getElementById("nextPage").disabled = currentPage === totalPages;
 }
-document.getElementById("jumpBtn").addEventListener("click", () => {
-  const input = document.getElementById("jumpInput").value;
-  const targetPage = parseInt(input);
-  const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
-
-  if (!isNaN(targetPage) && targetPage >= 1 && targetPage <= totalPages) {
-    currentPage = targetPage;
-    renderBooks();
-  } else {
-    alert("請輸入有效頁碼！");
-  }
-});
 
 function renderTagFilters() {
   tagGroups.forEach((group, index) => {
@@ -110,19 +98,16 @@ function applyFilter() {
   const keyword = document.getElementById("authorSearch")?.value.trim().toLowerCase() || "";
 
   filteredBooks = bookData.filter(book => {
-    // 替換成書名 + 作者一起搜尋（都支援模糊、大小寫無關）
     const title = book.title || "";
     const author = book.author || "";
     const titleMatch = title.toLowerCase().includes(keyword);
     const authorMatch = author.toLowerCase().includes(keyword);
     const textMatch = keyword === "" || titleMatch || authorMatch;
 
-    // 標籤篩選
     const tagMatch = tagCategories.every(tag =>
       !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag])
     );
 
-    // 評分篩選
     const ratingFilter = document.getElementById("rating-filter")?.value || "";
     const ratingMatch = !ratingFilter || book.stars.startsWith("★".repeat(ratingFilter));
 
@@ -155,6 +140,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentPage < totalPages) {
       currentPage++;
       renderBooks();
+    }
+  });
+
+  document.getElementById("jumpBtn").addEventListener("click", () => {
+    const input = document.getElementById("jumpInput").value;
+    const targetPage = parseInt(input);
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+    if (!isNaN(targetPage) && targetPage >= 1 && targetPage <= totalPages) {
+      currentPage = targetPage;
+      renderBooks();
+    } else {
+      alert("請輸入有效頁碼！");
     }
   });
 
