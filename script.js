@@ -112,8 +112,9 @@ function applyFilter() {
       !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag])
     );
 
-    const keyword = document.getElementById("authorSearch").value.trim();
-    const authorMatch = keyword === "" || book.author.includes(keyword);
+    const keyword = document.getElementById("authorSearch").value.trim().toLowerCase();  
+const author = book.author || "";
+const authorMatch = keyword === "" || author.toLowerCase().includes(keyword);
 
     const ratingFilter = document.getElementById("rating-filter")?.value || "";
     const ratingMatch =
