@@ -50,6 +50,10 @@ function createBookCard(book) {
 }
 
 function renderBooks() {
+document.getElementById("bookList").innerHTML = `<p style="color:green;">目前篩選結果：${filteredBooks.length} 筆</p>`;
+
+ console.log("目前篩選結果", filteredBooks.length);
+
   const list = document.getElementById("bookList");
   list.innerHTML = "";
 
@@ -77,7 +81,7 @@ function renderTagFilters() {
       const select = document.createElement("select");
       select.setAttribute("data-tag", tag);
       select.innerHTML = `<option value="">𖤐 ${tagDisplayNames[tag]}</option>`;
-      const tagSet = new Set(filteredBooks.flatMap(b => b[tag] || []));
+     + const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
       [...tagSet].forEach(val => {
         const opt = document.createElement("option");
         opt.value = val;
@@ -94,7 +98,9 @@ function renderTagFilters() {
 }
 
 function applyFilter() {
-  const keyword = document.getElementById("authorSearch")?.value.trim().toLowerCase() || "";
+  console.log("原始書量", bookData.length);  // ← 用於檢查書本是否有被正確讀取
+
+  const keyword = "";
 
   filteredBooks = window.bookData.filter(book => {
     const title = book.title || "";
