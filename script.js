@@ -50,10 +50,6 @@ function createBookCard(book) {
 }
 
 function renderBooks() {
-document.getElementById("bookList").innerHTML = `<p style="color:green;">目前篩選結果：${filteredBooks.length} 筆</p>`;
-
- console.log("目前篩選結果", filteredBooks.length);
-
   const list = document.getElementById("bookList");
   list.innerHTML = "";
 
@@ -81,7 +77,7 @@ function renderTagFilters() {
       const select = document.createElement("select");
       select.setAttribute("data-tag", tag);
       select.innerHTML = `<option value="">𖤐 ${tagDisplayNames[tag]}</option>`;
-     + const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
+      const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
       [...tagSet].forEach(val => {
         const opt = document.createElement("option");
         opt.value = val;
@@ -98,11 +94,9 @@ function renderTagFilters() {
 }
 
 function applyFilter() {
-  console.log("原始書量", bookData.length);  // ← 用於檢查書本是否有被正確讀取
+  const keyword = document.getElementById("authorSearch")?.value.trim().toLowerCase() || "";
 
-  const keyword = "";
-
-  filteredBooks = window.bookData.filter(book => {
+  filteredBooks = bookData.filter(book => {
     const title = book.title || "";
     const author = book.author || "";
     const titleMatch = title.toLowerCase().includes(keyword);
@@ -123,35 +117,23 @@ function applyFilter() {
   renderBooks();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // 等 bookData 存在再初始化
-  if (typeof bookData === "undefined") {
-    document.getElementById("bookList").innerHTML = "<p style='color:red;'>⚠️ bookData 未載入</p>";
-    return;
-  }
-
-  filteredBooks = [...bookData];
-
-  renderTagFilters();
+function bindUIEvents() {
   document.getElementById("authorSearch")?.addEventListener("input", applyFilter);
   document.getElementById("rating-filter")?.addEventListener("change", applyFilter);
-
-  document.getElementById("prevPage").addEventListener("click", () => {
+  document.getElementById("prevPage")?.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
       renderBooks();
     }
   });
-
-  document.getElementById("nextPage").addEventListener("click", () => {
+  document.getElementById("nextPage")?.addEventListener("click", () => {
     const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
     if (currentPage < totalPages) {
       currentPage++;
       renderBooks();
     }
   });
-
-  document.getElementById("jumpBtn").addEventListener("click", () => {
+  document.getElementById("jumpBtn")?.addEventListener("click", () => {
     const input = document.getElementById("jumpInput").value;
     const targetPage = parseInt(input);
     const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
@@ -163,6 +145,17 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("請輸入有效頁碼！");
     }
   });
+}
 
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof bookData === "undefined" || !Array.isArray(bookData)) {
+    document.getElementById("bookList").innerHTML = "<p style='color:red;'>⚠️ 無法載入書卡資料（bookData 未正確載入）</p>";
+    return;
+  }
+
+  filteredBooks = [...bookData];
+
+  renderTagFilters();
+  bindUIEvents();
   applyFilter();
 });
