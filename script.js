@@ -119,8 +119,8 @@ function applyFilter() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderBooks();
   renderTagFilters();
+  renderBooks();
 
   const authorInput = document.getElementById("authorSearch");
   if (authorInput) {
