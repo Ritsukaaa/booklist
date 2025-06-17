@@ -13,7 +13,7 @@ const tagDisplayNames = {
 const booksPerPage = 6;
 let currentPage = 1;
 let currentFilter = {};
-let filteredBooks = [...bookData];
+let filteredBooks = []; // ✅ 等 DOMContentLoaded 後再指定 bookData
 
 const tagGroups = [
   ["tagA", "tagB", "tagC", "tagD"],
@@ -119,8 +119,9 @@ function applyFilter() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderTagFilters();
-  renderBooks();
+  filteredBooks = [...bookData];     // ✅ 確保 bookData 已經準備好
+  renderTagFilters();                // ✅ 接著建立下拉式標籤
+  applyFilter();                     // ✅ 一開始就渲染符合資料
 
   const authorInput = document.getElementById("authorSearch");
   if (authorInput) {
@@ -156,7 +157,4 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("請輸入有效頁碼！");
     }
   });
-
-  // ✅ 保證篩選生效
-  applyFilter();
 });
