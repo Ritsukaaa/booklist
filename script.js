@@ -1,3 +1,5 @@
+// ✅ 替換完整 script.js：解決書卡載入問題 + 篩選器功能 + 搜尋作者/書名
+
 const tagDisplayNames = {
   tagA: "時間",
   tagB: "設定",
@@ -13,7 +15,7 @@ const tagDisplayNames = {
 const booksPerPage = 6;
 let currentPage = 1;
 let currentFilter = {};
-let filteredBooks = []; // ✅ 等 DOMContentLoaded 後再指定 bookData
+let filteredBooks = [];
 
 const tagGroups = [
   ["tagA", "tagB", "tagC", "tagD"],
@@ -31,10 +33,10 @@ function createBookCard(book) {
   const meta = `<div class="meta">${book.meta || ""}</div>`;
 
   const tags = (book.tags || [])
-    .map(tag => `<span class="tag">${tag}</span>`)
+    .map(tag => `<span class="tag">${tag}</span>`) 
     .join("");
   const plainTags = (book.plainTags || [])
-    .map(tag => `<span class="plain-tags">${tag}</span>`)
+    .map(tag => `<span class="plain-tags">${tag}</span>`) 
     .join("");
   const tagSection = `<div class="book-tags">${tags}${plainTags}</div>`;
 
@@ -118,26 +120,41 @@ function applyFilter() {
   renderBooks();
 }
 
+function bindFilterInputs() {
+  document.getElementById("authorSearch")?.addEventListener("input", applyFilter);
+  document.getElementById("rating-filter")?.addEventListener("change", applyFilter);
+  document.getElementById("prevPage")?.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderBooks();
+    }
+  });
+  document.getElementById("nextPage")?.addEventListener("click", () => {
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderBooks();
+    }
+  });
+  document.getElementById("jumpBtn")?.addEventListener("click", () => {
+    const input = parseInt(document.getElementById("jumpInput").value);
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+    if (!isNaN(input) && input >= 1 && input <= totalPages) {
+      currentPage = input;
+      renderBooks();
+    } else {
+      alert("請輸入有效頁碼！");
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  if (typeof bookData === "undefined" || !Array.isArray(bookData)) {
+    console.error("bookData 尚未載入，請確認 data.js 有正確引入並定義。");
+    return;
+  }
+  filteredBooks = [...bookData];
   renderTagFilters();
   bindFilterInputs();
-  applyFilter();  // 確認有初值，再渲染書卡頁面
+  applyFilter();
 });
-
-function bindFilterInputs() {
-  document.getElementById("authorSearch")
-    .addEventListener("input", applyFilter);
-  document.getElementById("rating-filter")
-    .addEventListener("change", applyFilter);
-  document.getElementById("prevPage")
-    .addEventListener("click", () => { currentPage--; renderBooks(); });
-  document.getElementById("nextPage")
-    .addEventListener("click", () => { currentPage++; renderBooks(); });
-  document.getElementById("jumpBtn")
-    .addEventListener("click", () => {
-      const n = parseInt(document.getElementById("jumpInput").value);
-      const max = Math.ceil(filteredBooks.length / booksPerPage);
-      if (n >= 1 && n <= max) currentPage = n;
-      renderBooks();
-    });
-}
