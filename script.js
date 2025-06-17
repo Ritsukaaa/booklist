@@ -157,5 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ✅ 保證篩選生效
   applyFilter();
 });
