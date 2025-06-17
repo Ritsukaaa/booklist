@@ -112,14 +112,11 @@ function applyFilter() {
       !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag])    
     );    
     
-    const keyword = document.getElementById("authorSearch").value.trim();    
-    const authorMatch = keyword === "" || book.author.includes(keyword);    
-    
     const ratingFilter = document.getElementById("rating-filter")?.value || "";    
     const ratingMatch =    
       !ratingFilter || book.stars.startsWith("★".repeat(ratingFilter));    
     
-    return tagMatch && authorMatch && ratingMatch;    
+    return tagMatch && ratingMatch;
   });    
     
   currentPage = 1;    
@@ -128,7 +125,6 @@ function applyFilter() {
     
 document.addEventListener("DOMContentLoaded", () => {    
   renderTagFilters();    
-  document.getElementById("authorSearch").addEventListener("input", applyFilter);    
   document.getElementById("rating-filter")?.addEventListener("change", applyFilter);    
   document.getElementById("prevPage").addEventListener("click", () => {    
     if (currentPage > 1) {    
