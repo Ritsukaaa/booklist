@@ -14,7 +14,6 @@ const booksPerPage = 6;
 let currentPage = 1;
 let currentFilter = {};
 let filteredBooks = [];
-
 const tagGroups = [
   ["tagA", "tagB", "tagC", "tagD"],
   ["tagE", "tagF", "tagG"],
@@ -38,7 +37,12 @@ function createBookCard(book) {
     .join("");
   const tagSection = `<div class="book-tags">${tags}${plainTags}</div>`;
 
-  const comment = `<div class="comment"><div class="comment-bar"></div><p>${book.comment}</p></div>`;
+  const comment = `
+    <div class="comment">
+      <div class="comment-bar"></div>
+      <p>${book.comment}</p>
+    </div>`;
+
   const watermark = `<img class="watermark" src="${book.watermark}" style="width:${book.watermarkWidth};" />`;
 
   card.innerHTML = `${title}${stars}${meta}${tagSection}${comment}${watermark}`;
@@ -73,7 +77,7 @@ function renderTagFilters() {
       const select = document.createElement("select");
       select.setAttribute("data-tag", tag);
       select.innerHTML = `<option value="">𖤐 ${tagDisplayNames[tag]}</option>`;
-      const tagSet = new Set(bookData.flatMap(b => b[tag] || []));
+      const tagSet = new Set(filteredBooks.flatMap(b => b[tag] || []));
       [...tagSet].forEach(val => {
         const opt = document.createElement("option");
         opt.value = val;
@@ -90,7 +94,15 @@ function renderTagFilters() {
 }
 
 function applyFilter() {
-  filteredBooks = bookData.filter(book => {
+  const keyword = document.getElementById("authorSearch")?.value.trim().toLowerCase() || "";
+
+  filteredBooks = window.bookData.filter(book => {
+    const title = book.title || "";
+    const author = book.author || "";
+    const titleMatch = title.toLowerCase().includes(keyword);
+    const authorMatch = author.toLowerCase().includes(keyword);
+    const textMatch = keyword === "" || titleMatch || authorMatch;
+
     const tagMatch = tagCategories.every(tag =>
       !currentFilter[tag] || (book[tag] || []).includes(currentFilter[tag])
     );
@@ -98,7 +110,7 @@ function applyFilter() {
     const ratingFilter = document.getElementById("rating-filter")?.value || "";
     const ratingMatch = !ratingFilter || book.stars.startsWith("★".repeat(ratingFilter));
 
-    return tagMatch && ratingMatch;
+    return tagMatch && textMatch && ratingMatch;
   });
 
   currentPage = 1;
@@ -106,43 +118,45 @@ function applyFilter() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (!window.bookData) {
-    document.getElementById("bookList").innerHTML = "<p style='color:red;'>❌ bookData 未載入</p>";
+  // 等 bookData 存在再初始化
+  if (typeof bookData === "undefined") {
+    document.getElementById("bookList").innerHTML = "<p style='color:red;'>⚠️ bookData 未載入</p>";
     return;
   }
 
   filteredBooks = [...bookData];
+
   renderTagFilters();
-  bindFilterInputs();
+  document.getElementById("authorSearch")?.addEventListener("input", applyFilter);
+  document.getElementById("rating-filter")?.addEventListener("change", applyFilter);
+
+  document.getElementById("prevPage").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderBooks();
+    }
+  });
+
+  document.getElementById("nextPage").addEventListener("click", () => {
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderBooks();
+    }
+  });
+
+  document.getElementById("jumpBtn").addEventListener("click", () => {
+    const input = document.getElementById("jumpInput").value;
+    const targetPage = parseInt(input);
+    const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+    if (!isNaN(targetPage) && targetPage >= 1 && targetPage <= totalPages) {
+      currentPage = targetPage;
+      renderBooks();
+    } else {
+      alert("請輸入有效頁碼！");
+    }
+  });
+
   applyFilter();
 });
-
-function bindFilterInputs() {
-  document.getElementById("rating-filter")
-    .addEventListener("change", applyFilter);
-
-  document.getElementById("prevPage")
-    .addEventListener("click", () => {
-      if (currentPage > 1) {
-        currentPage--;
-        renderBooks();
-      }
-    });
-
-  document.getElementById("nextPage")
-    .addEventListener("click", () => {
-      const maxPage = Math.ceil(filteredBooks.length / booksPerPage);
-      if (currentPage < maxPage) {
-        currentPage++;
-        renderBooks();
-      }
-    });
-
-  document.getElementById("jumpBtn")
-    .addEventListener("click", () => {
-      const n = parseInt(document.getElementById("jumpInput").value);
-      const max = Math.ceil(filteredBooks.length / booksPerPage);
-      if (n >= 1 && n <= max) currentPage = n;
-      renderBooks();
-    });
-}
