@@ -1,124 +1,64 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>作者篩選測試</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    .filters, .author-tag-row { margin-bottom: 1em; }
-    select { margin-right: 10px; }
-    .book-card { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>書卡展示</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>作者分類篩選測試頁</h2>
+  <div class="top-banner">
+  <img src="https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/202506030042520a1.png" alt="上方裝飾圖" />
+  </div>
+<!-- ✅ 統一容器包住篩選器 -->
+<div class="filter-wrapper">  
+  <!-- 🔍 篩選區 -->
+  <div class="filter-hint">
+    <p>❶ 可依作者、評分、標籤條件進行篩選（可複合選擇）。
+    <br>❷ 點選書名可跳轉至長評連結。
+    <br>❸ 最新更新日：【2025.06.07】</p>
+</div>
+
   <div class="filters">
-    <label>評分：</label>
-    <select id="rating-filter">
+      <select id="rating-filter">
       <option value="">𖤐 評分</option>
       <option value="5">★★★★★</option>
       <option value="4">★★★★☆</option>
       <option value="3">★★★☆☆</option>
       <option value="2">★★☆☆☆</option>
       <option value="1">★☆☆☆☆</option>
-    </select>
+     </select>
   </div>
 
-  <div class="author-tag-row" id="author-tag-row"></div>
+<div class="tag-row" id="author-filter-row"></div>
 
-  <div id="bookList"></div>
+  <!-- 🔖 九大標籤篩選 -->
+  <div class="tag-filters">
+  <div class="tag-row" id="tag-row-1"></div>
+  <div class="tag-row" id="tag-row-2"></div>
+  <div class="tag-row" id="tag-row-3"></div>
+  </div>
+</div>
 
-  <script>
-const authorAliasMap = {
-  "明蒿": ["明蒿", "留蘅"],
-  "童子": ["童子", "折一枚針"],
-  "風弄": ["風弄"]
-};
+  <!-- 📚 書卡容器 -->
+  <div id="bookList" class="book-list"></div>
 
-const authorTagCategories = ["兩個字", "三個字", "四個字"];
-
-const bookData = [
-  {
-    title: "《小說A》", author: "明蒿", stars: "★★★★★", plainTags: ["兩個字"], comment: "故事精彩"
-  },
-  {
-    title: "《小說B》", author: "留蘅", stars: "★★★☆☆", plainTags: ["兩個字"], comment: "風格冷靜"
-  },
-  {
-    title: "《小說C》", author: "童子", stars: "★★★★☆", plainTags: ["兩個字"], comment: "文字細膩"
-  },
-  {
-    title: "《小說D》", author: "折一枚針", stars: "★★☆☆☆", plainTags: ["四個字"], comment: "情節鬆散"
-  },
-  {
-    title: "《小說E》", author: "風弄", stars: "★★★★☆", plainTags: ["兩個字"], comment: "經典老作"
-  }
-];
-
-let currentAuthorFilter = {};
-let filteredBooks = [...bookData];
-
-function renderAuthorTagFilters() {
-  const row = document.getElementById("author-tag-row");
-  authorTagCategories.forEach(category => {
-    const select = document.createElement("select");
-    select.setAttribute("data-author-tag", category);
-    select.innerHTML = `<option value="">𖤐 ${category}</option>`;
-
-    const authors = Object.keys(authorAliasMap).filter(author =>
-      bookData.find(b => b.author === author && b.plainTags?.includes(category))
-    );
-
-    authors.forEach(name => {
-      const opt = document.createElement("option");
-      opt.value = name;
-      opt.textContent = name;
-      select.appendChild(opt);
-    });
-
-    select.addEventListener("change", () => {
-      currentAuthorFilter[category] = select.value;
-      applyFilter();
-    });
-
-    row.appendChild(select);
-  });
-}
-
-function applyFilter() {
-  const ratingFilter = document.getElementById("rating-filter")?.value || "";
-
-  filteredBooks = bookData.filter(book => {
-    const ratingMatch = !ratingFilter || book.stars.startsWith("★".repeat(ratingFilter));
-    const authorMatch = Object.entries(currentAuthorFilter).every(([cat, selected]) => {
-      if (!selected) return true;
-      return (
-        book.plainTags?.includes(cat) &&
-        authorAliasMap[selected]?.includes(book.author)
-      );
-    });
-    return ratingMatch && authorMatch;
-  });
-
-  renderBooks();
-}
-
-function renderBooks() {
-  const list = document.getElementById("bookList");
-  list.innerHTML = "";
-  filteredBooks.forEach(book => {
-    const div = document.createElement("div");
-    div.className = "book-card";
-    div.innerHTML = `<strong>${book.title}</strong><br>作者：${book.author}<br>評分：${book.stars}<br>${book.comment}`;
-    list.appendChild(div);
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderAuthorTagFilters();
-  document.getElementById("rating-filter")?.addEventListener("change", applyFilter);
-  applyFilter();
-});
-  </script>
+  <!-- ⏩ 頁碼區 -->
+  <section class="pagination">
+  <div class="page-controls">
+    <button id="prevPage">← 上一頁</button>
+    <span id="pageInfo">第 1 頁</span>
+    <button id="nextPage">下一頁 →</button>
+  </div>
+  <div class="jump-to">
+    跳轉到第 <input type="number" id="jumpInput" min="1" style="width: 3em;" /> 頁
+    <button id="jumpBtn">Go</button>
+  </div>
+  </section>
+<div class="bottom-banner">
+  <img src="https://blog-imgs-162.fc2.com/p/o/m/pomelo1122/2025060300425481b.png" alt="下方裝飾圖" />
+</div>
+  <script src="data.js?v=20250617"></script>
+  <script src="script.js?v=20250617"></script>
 </body>
 </html>
