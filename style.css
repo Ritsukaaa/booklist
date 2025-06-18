@@ -112,6 +112,7 @@ body {
 .tag-row select {
   font-size: 0.9rem;
   padding: 0.5em 0.8em;
+  padding-right: 2.2em;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   background-color: #f4f4f4;
@@ -332,4 +333,8 @@ body {
   .pagination {
     flex-direction: column;
   }
+}
+
+.tag-row:last-of-type {
+  margin-bottom: 2rem; /* ✅ 拉大篩選器與書卡之間的距離 */
 }
