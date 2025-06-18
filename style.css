@@ -260,3 +260,7 @@ body {
     flex-direction: column;
   }
 }
+
+.filter-divider + .filters {
+  margin-top: 0.6rem;
+}
