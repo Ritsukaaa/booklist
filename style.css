@@ -368,3 +368,19 @@ body {
     max-width: 45vw;
   }
 }
+
+.filter-divider {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #666;
+  margin: 1.2rem 0 0.5rem 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  .filter-divider {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+}
