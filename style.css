@@ -339,8 +339,8 @@ body {
   margin-bottom: 2rem; /* ✅ 拉大篩選器與書卡之間的距離 */
 }
 
-.filter-divider:first-of-type {
+.filter-divider:nth-of-type(1) {
   border-top: none;
   padding-top: 0;
-  margin-top: 0.5rem; /* 可以微調上方空間 */
+  margin-top: 0.5rem;
 }
