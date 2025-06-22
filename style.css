@@ -339,7 +339,7 @@ body {
   margin-bottom: 2rem; /* ✅ 拉大篩選器與書卡之間的距離 */
 }
 
-.filter-divider:nth-of-type(1) {
+.filter-wrapper .filter-divider:first-child {
   border-top: none;
   padding-top: 0;
   margin-top: 0.5rem;
