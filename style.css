@@ -339,8 +339,10 @@ body {
   margin-bottom: 2rem; /* ✅ 拉大篩選器與書卡之間的距離 */
 }
 
-.filter-wrapper .filter-divider:first-child {
+/* 原本的 .filter-divider:first-of-type 可刪除，改為以下選擇器 */
+
+.filter-divider.first {
   border-top: none;
   padding-top: 0;
-  margin-top: 0.5rem;
+  margin-top: 0.5rem; /* 或調成 0rem 更緊密 */
 }
