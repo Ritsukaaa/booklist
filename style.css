@@ -338,3 +338,9 @@ body {
 .tag-row:last-of-type {
   margin-bottom: 2rem; /* ✅ 拉大篩選器與書卡之間的距離 */
 }
+
+.filter-divider:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0.5rem; /* 可以微調上方空間 */
+}
