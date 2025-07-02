@@ -41,13 +41,23 @@ function createBookCard(book) {
   const stars = `<div class="stars">${book.stars}</div>`;
   const meta = `<div class="meta">${book.meta || ""}</div>`;
 
-  const tags = (book.tags || [])
-    .map(tag => `<span class="tag">${tag}</span>`)
-    .join("");
-  const plainTags = (book.plainTags || [])
-    .map(tag => `<span class="plain-tags">${tag}</span>`)
-    .join("");
-  const tagSection = `<div class="book-tags">${tags}${plainTags}</div>`;
+// 顯示 tagA ~ tagI 的分類標籤
+const tagKeys = ["tagA", "tagB", "tagC", "tagD", "tagE", "tagF", "tagG", "tagH", "tagI"];
+const categoryTags = tagKeys
+  .flatMap(key => book[key] || [])
+  .map(tag => `<span class="tag">${tag}</span>`)
+  .join("");
+
+// 顯示棄文標籤（tagDrop）
+const dropTag = book.tagDrop ? `<span class="plain-tags">${book.tagDrop}</span>` : "";
+
+// 顯示自由標籤（plainTags）
+const plainTags = (book.plainTags || [])
+  .map(tag => `<span class="plain-tags">${tag}</span>`)
+  .join("");
+
+// 書卡標籤區
+const tagSection = `<div class="book-tags">${categoryTags}${dropTag}${plainTags}</div>`;
 
   const comment = `
     <div class="comment">
