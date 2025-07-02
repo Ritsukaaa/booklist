@@ -48,18 +48,27 @@ const categoryTags = tagKeys
   .map(tag => `<span class="tag">${tag}</span>`)
   .join("");
 
-// 顯示棄文標籤（tagDrop）
-const dropTag = book.tagDrop
-  ? `<span class="plain-tags">${book.tagDrop}</span>`
-  : "";
+// ✅ 修正：支援 tagDrop 是字串或陣列
+const dropTags = Array.isArray(book.tagDrop)
+  ? book.tagDrop
+  : typeof book.tagDrop === "string"
+    ? book.tagDrop.split(",").map(t => t.trim())
+    : [];
 
-// 顯示自由標籤（plainTags）
+const dropTagHTML = dropTags
+  .map(tag => `<span class="plain-tags">${tag}</span>`)
+  .join("");
+
+// 過濾掉空白內容（plainTags）
 const plainTags = Array.isArray(book.plainTags)
-  ? book.plainTags.map(tag => `<span class="plain-tags">${tag}</span>`).join("")
+  ? book.plainTags
+      .filter(tag => tag && tag.trim() !== "") // ✅ 移除空字串
+      .map(tag => `<span class="plain-tags">${tag}</span>`)
+      .join("")
   : "";
 
 // 組合標籤區塊
-const tagSection = `<div class="book-tags">${categoryTags}${dropTag}${plainTags}</div>`;
+const tagSection = `<div class="book-tags">${categoryTags}${dropTagHTML}${plainTags}</div>`;
 
   const comment = `
     <div class="comment">
