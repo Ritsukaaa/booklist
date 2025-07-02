@@ -44,19 +44,21 @@ function createBookCard(book) {
 // 顯示 tagA ~ tagI 的分類標籤
 const tagKeys = ["tagA", "tagB", "tagC", "tagD", "tagE", "tagF", "tagG", "tagH", "tagI"];
 const categoryTags = tagKeys
-  .flatMap(key => book[key] || [])
+  .flatMap(key => Array.isArray(book[key]) ? book[key] : [])
   .map(tag => `<span class="tag">${tag}</span>`)
   .join("");
 
 // 顯示棄文標籤（tagDrop）
-const dropTag = book.tagDrop ? `<span class="plain-tags">${book.tagDrop}</span>` : "";
+const dropTag = book.tagDrop
+  ? `<span class="plain-tags">${book.tagDrop}</span>`
+  : "";
 
 // 顯示自由標籤（plainTags）
-const plainTags = (book.plainTags || [])
-  .map(tag => `<span class="plain-tags">${tag}</span>`)
-  .join("");
+const plainTags = Array.isArray(book.plainTags)
+  ? book.plainTags.map(tag => `<span class="plain-tags">${tag}</span>`).join("")
+  : "";
 
-// 書卡標籤區
+// 組合標籤區塊
 const tagSection = `<div class="book-tags">${categoryTags}${dropTag}${plainTags}</div>`;
 
   const comment = `
