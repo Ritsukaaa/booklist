@@ -73,6 +73,7 @@ body {
   padding: 0.3em 0.6em;
   border-radius: 999px;
   font-size: 0.8rem;
+  border: 1px solid #000; /* ✅ 新增這行，加入黑框 */
 }
 
 .book-tags .plain-tags {
