@@ -45,7 +45,7 @@ body {
 
 .book-card .stars {
   font-size: 1.1rem;
-  color: #FAF4D3;
+  color: #F9BF45;
   font-weight: bold; /* ✅ 加粗字體讓星星更有存在感 */
   margin-bottom: 0.4rem;
   line-height: 1.4;
